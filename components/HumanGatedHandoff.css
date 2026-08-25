@@ -1,0 +1,150 @@
+/* 
+  HumanGatedHandoff Component Styles
+  Extracted from Pass-1 Design Sandbox.
+*/
+
+.hero-handoff {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin-top: 2rem;
+  background-image: linear-gradient(to right, var(--grid-line) 1px, transparent 1px), 
+                    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.handoff-flow {
+  position: relative;
+  border-left: 1px solid var(--rule);
+  padding-left: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.handoff-node {
+  background: transparent;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* Connecting horizontal ticks */
+.handoff-node::before {
+  content: "";
+  position: absolute;
+  left: -2rem;
+  top: 50%;
+  width: 1.5rem;
+  height: 1px;
+  background: var(--rule);
+}
+
+.handoff-node span {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.65rem;
+  color: var(--ink-light);
+  margin-right: 1.5rem;
+  opacity: 0.5;
+}
+
+.handoff-node b {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+/* Strongly differentiated Human Decision node */
+.handoff-decision::before {
+  background: var(--copper);
+  width: 2rem;
+  left: -2.5rem;
+}
+
+.handoff-decision b {
+  color: var(--copper);
+}
+
+.handoff-recovery {
+  margin-left: 0;
+  padding-left: 2rem;
+  margin-top: -0.75rem;
+  margin-bottom: -0.75rem;
+  border-left: 1px dashed var(--rule);
+  position: relative;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  color: var(--ink-light);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.handoff-recovery::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  bottom: 50%;
+  width: 1.5rem;
+  height: 1px;
+  background: var(--rule);
+}
+
+.handoff-public-label {
+  margin-top: 3rem;
+  color: var(--copper);
+  border: none;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Dark Mode overrides (e.g., Loft OS Technical Plate) */
+.handoff-dark {
+  background: transparent;
+}
+.handoff-dark .handoff-flow {
+  border-color: var(--rule-dark);
+}
+.handoff-dark .handoff-node::before {
+  background: var(--rule-dark);
+}
+.handoff-dark .handoff-node span {
+  color: rgba(255,255,255,0.4);
+}
+.handoff-dark .handoff-node b {
+  color: var(--paper, #fff);
+}
+.handoff-dark .handoff-decision::before {
+  background: var(--copper);
+}
+.handoff-dark .handoff-decision b {
+  color: var(--copper);
+}
+.handoff-dark .handoff-recovery {
+  border-color: var(--rule-dark);
+  color: rgba(255,255,255,0.6);
+}
+.handoff-dark .handoff-recovery::before {
+  background: var(--rule-dark);
+}
+.handoff-dark .handoff-public-label {
+  color: var(--copper);
+}
+
+/* Screen reader only utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}

@@ -687,3 +687,44 @@ a {
   font-size: 0.95rem;
   color: var(--ink-light);
 }
+
+/* =========================================
+   EXPLICIT VERTICAL RHYTHM REFINEMENT
+   ========================================= */
+
+/* 1. Compact Capabilities */
+.capabilities-section {
+  padding: 48px 0 !important;
+}
+
+/* 2. Breathing Room for Resale Scanner Pro (Flagship) */
+.featured-section {
+  padding: 200px 0 160px 0 !important;
+}
+
+/* 3. Substantial Visual Pause for Loft OS */
+.supporting-section {
+  padding: 160px 0 120px 0 !important;
+}
+
+.loft-plate {
+  margin-top: 120px !important;
+  margin-bottom: 120px !important;
+  padding-top: 160px !important;
+  padding-bottom: 160px !important;
+}
+
+@media (max-width: 900px) {
+  .featured-section {
+    padding: 120px 0 100px 0 !important;
+  }
+  .supporting-section {
+    padding: 100px 0 80px 0 !important;
+  }
+  .loft-plate {
+    margin-top: 80px !important;
+    margin-bottom: 80px !important;
+    padding-top: 100px !important;
+    padding-bottom: 100px !important;
+  }
+}

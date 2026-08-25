@@ -159,7 +159,7 @@ const pages = {
         <div class="work-index-layout" style="margin-top: 4rem;">
           <div class="work-list">
             
-            <a href="/work/resale-scanner-pro/" class="work-row" aria-current="true" data-img="/images/rsp/session.png" data-alt="Resale Scanner Pro Mobile Interface">
+            <a href="/work/resale-scanner-pro/" class="work-row" data-preview-active="true" data-img="/images/rsp/session.png" data-alt="Resale Scanner Pro Mobile Interface">
               <span class="mono text-muted">01</span>
               <h2 class="serif">Resale Scanner Pro</h2>
               <div class="work-metadata">
@@ -169,7 +169,7 @@ const pages = {
               </div>
             </a>
             
-            <a href="/work/loft-os/" class="work-row" aria-current="false" data-img="/og-loft-os.png" data-alt="Loft OS Technical Schematic">
+            <a href="/work/loft-os/" class="work-row" data-preview-active="false" data-img="/og-loft-os.png" data-alt="Loft OS Technical Schematic">
               <span class="mono text-muted">02</span>
               <h2 class="serif">Loft OS</h2>
               <div class="work-metadata">
@@ -179,7 +179,7 @@ const pages = {
               </div>
             </a>
             
-            <a href="/work/assistant-recruiter-pro/" class="work-row" aria-current="false" data-img="/og-hiring.png" data-alt="Assistant Recruiter Pro Workflow">
+            <a href="/work/assistant-recruiter-pro/" class="work-row" data-preview-active="false" data-img="/og-hiring.png" data-alt="Assistant Recruiter Pro Workflow">
               <span class="mono text-muted">03</span>
               <h2 class="serif">Assistant Recruiter Pro</h2>
               <div class="work-metadata">
@@ -189,7 +189,7 @@ const pages = {
               </div>
             </a>
             
-            <a href="/work/sous-chef/" class="work-row" aria-current="false" data-img="/images/sous-chef/desktop.png" data-alt="Sous Chef Desktop Workspace">
+            <a href="/work/sous-chef/" class="work-row" data-preview-active="false" data-img="/images/sous-chef/desktop.png" data-alt="Sous Chef Desktop Workspace">
               <span class="mono text-muted">04</span>
               <h2 class="serif">Sous Chef</h2>
               <div class="work-metadata">
@@ -267,17 +267,17 @@ const pages = {
           <div class="rsp-narrative evidence-spine">
             <div class="spine-node"></div>
             
-            <button type="button" class="rsp-step" aria-selected="true" aria-controls="rsp-preview-img" data-img="/images/rsp/session.png" data-alt="Session-level signals and sourcing evaluate screen">
+            <button type="button" class="rsp-step" aria-pressed="true" aria-controls="rsp-preview-img" data-img="/images/rsp/session.png" data-alt="Session-level signals and sourcing evaluate screen">
               <h3 class="serif">01 Evaluate</h3>
               <p class="text-muted" style="font-size: 0.95rem;">Session-level signals and sourcing decisions. Uncertainty remains visible and the operator stays in control.</p>
             </button>
             
-            <button type="button" class="rsp-step" aria-selected="false" aria-controls="rsp-preview-img" data-img="/images/rsp/listings.png" data-alt="Comparable listings and act screen">
+            <button type="button" class="rsp-step" aria-pressed="false" aria-controls="rsp-preview-img" data-img="/images/rsp/listings.png" data-alt="Comparable listings and act screen">
               <h3 class="serif">02 Act</h3>
               <p class="text-muted" style="font-size: 0.95rem;">Comparable listings beside the item decision. Human-reviewed optimization queue.</p>
             </button>
             
-            <button type="button" class="rsp-step" aria-selected="false" aria-controls="rsp-preview-img" data-img="/images/rsp/sold.png" data-alt="Sold evidence and learning screen">
+            <button type="button" class="rsp-step" aria-pressed="false" aria-controls="rsp-preview-img" data-img="/images/rsp/sold.png" data-alt="Sold evidence and learning screen">
               <h3 class="serif">03 Learn</h3>
               <p class="text-muted" style="font-size: 0.95rem;">Sold evidence closes the loop. Track outcomes so the next decision starts with context.</p>
             </button>
@@ -355,23 +355,23 @@ const pages = {
           <h3 class="serif">Request + Scope</h3>
           <p>Intent and scope become explicit. Named boundaries and explicit acceptance criteria are established before work begins.</p>
         </div>
-        <div id="p2" role="tabpanel" class="diagram-panel" aria-hidden="true">
+        <div id="p2" role="tabpanel" class="diagram-panel" aria-hidden="true" hidden>
           <h3 class="serif">AI-assisted role</h3>
           <p>Agent is assigned with clear red lines and boundaries.</p>
         </div>
-        <div id="p3" role="tabpanel" class="diagram-panel" aria-hidden="true">
+        <div id="p3" role="tabpanel" class="diagram-panel" aria-hidden="true" hidden>
           <h3 class="serif">Specialist work</h3>
           <p>The assigned work changes only authorized surfaces. Unpredictable behaviors are contained.</p>
         </div>
-        <div id="p4" role="tabpanel" class="diagram-panel" aria-hidden="true">
+        <div id="p4" role="tabpanel" class="diagram-panel" aria-hidden="true" hidden>
           <h3 class="serif">Review + Evidence</h3>
           <p>Preflight state checks and repeatable verification. Human judgment remains visible.</p>
         </div>
-        <div id="p5" role="tabpanel" class="diagram-panel decision-panel" aria-hidden="true">
+        <div id="p5" role="tabpanel" class="diagram-panel decision-panel" aria-hidden="true" hidden>
           <h3 class="serif text-copper">Human decision</h3>
           <p class="text-copper">Keep high-impact choices under explicit human control. Material decisions stay explicit and require human authority for material release.</p>
         </div>
-        <div id="p6" role="tabpanel" class="diagram-panel" aria-hidden="true">
+        <div id="p6" role="tabpanel" class="diagram-panel" aria-hidden="true" hidden>
           <h3 class="serif">Closeout</h3>
           <p>Reconcile evidence and confirm accountable ownership. Known-good closeout.</p>
         </div>
@@ -447,14 +447,14 @@ const pages = {
               <span class="chip">No frontend</span>
             </div>
             
-            <div id="stage-2" class="workbench-panel" role="tabpanel" aria-hidden="true">
+            <div id="stage-2" class="workbench-panel" role="tabpanel" aria-hidden="true" hidden>
               <h4 class="mono text-muted" style="margin-bottom: 1.5rem;">GENERATED BOOLEAN</h4>
               <div class="query-block">
                 ("senior software engineer" OR "backend engineer") AND ("distributed systems" OR "golang")
               </div>
             </div>
             
-            <div id="stage-3" class="workbench-panel" role="tabpanel" aria-hidden="true">
+            <div id="stage-3" class="workbench-panel" role="tabpanel" aria-hidden="true" hidden>
               <h4 class="mono text-muted" style="margin-bottom: 1.5rem;">ILLUSTRATIVE HUMAN REVIEW</h4>
               <div class="query-block" style="opacity: 0.6;">
                 ("senior software engineer" OR "backend engineer") AND ("distributed systems" OR "golang")
@@ -464,7 +464,7 @@ const pages = {
               </div>
             </div>
             
-            <div id="stage-4" class="workbench-panel" role="tabpanel" aria-hidden="true">
+            <div id="stage-4" class="workbench-panel" role="tabpanel" aria-hidden="true" hidden>
               <h4 class="mono text-muted" style="margin-bottom: 1.5rem;">REVISED QUERY STATE</h4>
               <div class="query-block revised">
                 ("senior software engineer" OR "backend engineer") AND ("distributed systems" OR "golang") <span style="background: rgba(21, 121, 71, 0.1); font-weight: bold; padding: 2px 4px;">-("react" OR "frontend" OR "css")</span>
@@ -587,21 +587,21 @@ const pages = {
               <a href="/downloads/Angel_Vergara_Resume_General.pdf" class="link-download mono" style="display: inline-block; margin-top: 1rem; padding: 0.75rem 1.5rem; border: 1px solid var(--spine);" download>Download PDF</a>
             </div>
             
-            <div id="implementation" role="tabpanel" class="resume-panel" aria-hidden="true">
+            <div id="implementation" role="tabpanel" class="resume-panel" aria-hidden="true" hidden>
               <span class="mono text-muted">ROLE-SPECIFIC VARIANT</span>
               <h2 class="serif" style="margin-top: 0.5rem;">Implementation & Onboarding</h2>
               <p>Leads with bilingual operations leadership, training, configuration, workflow discovery, and customer-ready implementation.</p>
               <a href="/downloads/Angel_Vergara_Resume_Implementation_Onboarding.pdf" class="link-download mono" style="display: inline-block; margin-top: 1rem; padding: 0.75rem 1.5rem; border: 1px solid var(--spine);" download>Download PDF</a>
             </div>
             
-            <div id="systems" role="tabpanel" class="resume-panel" aria-hidden="true">
+            <div id="systems" role="tabpanel" class="resume-panel" aria-hidden="true" hidden>
               <span class="mono text-muted">ROLE-SPECIFIC VARIANT</span>
               <h2 class="serif" style="margin-top: 0.5rem;">Business Systems & Operations</h2>
               <p>Leads with process discovery, requirements, operating controls, reporting, vendor coordination, inventory, and systems thinking.</p>
               <a href="/downloads/Angel_Vergara_Resume_Business_Systems_Operations.pdf" class="link-download mono" style="display: inline-block; margin-top: 1rem; padding: 0.75rem 1.5rem; border: 1px solid var(--spine);" download>Download PDF</a>
             </div>
             
-            <div id="ai" role="tabpanel" class="resume-panel" aria-hidden="true">
+            <div id="ai" role="tabpanel" class="resume-panel" aria-hidden="true" hidden>
               <span class="mono text-muted">ROLE-SPECIFIC VARIANT</span>
               <h2 class="serif" style="margin-top: 0.5rem;">AI Workflow & Automation</h2>
               <p>Leads with working AI product proof, governed AI workflows, human approval gates, recovery logic, and evidence-backed delivery.</p>

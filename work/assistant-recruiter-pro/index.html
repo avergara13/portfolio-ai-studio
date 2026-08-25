@@ -22,15 +22,66 @@
     </div>
   </header>
   <main id="main">
-    
+
       <section class="shell">
         <span class="mono text-muted">03 &middot; AI Workflow</span>
         <h1 class="serif">Assistant Recruiter Pro</h1>
-        <p class="text-muted" style="max-width: 800px;">Generates and iteratively refines Boolean search strategy from job-description constraints and structured user feedback.</p>
-        
+        <p class="text-muted" style="max-width: 800px;">An AI-assisted search-strategy workflow that turns job-description constraints into reviewable Boolean logic, then uses human relevance feedback to refine the next search state.</p>
+
+        <div class="project-ledger">
+          <div class="ledger-item">
+            <span class="mono">ROLE</span>
+            <p>Workflow design &middot; search logic &middot; evaluation design</p>
+          </div>
+          <div class="ledger-item">
+            <span class="mono">PRIMARY TASK</span>
+            <p>Translate ambiguous job requirements into a usable sourcing strategy</p>
+          </div>
+          <div class="ledger-item">
+            <span class="mono">INPUT</span>
+            <p>Job-description constraints &middot; target profile &middot; exclusions</p>
+          </div>
+          <div class="ledger-item">
+            <span class="mono">PROOF</span>
+            <p>Sanitized evaluative workflow showing feedback-driven revision</p>
+          </div>
+        </div>
+
         <div style="margin: 4rem 0;">
-          <h2 class="serif">From a messy job description to a reviewable search strategy.</h2>
-          <p>Feedback is treated as a first-class input: relevance, false positives, and platform realism directly shape the next iteration.</p>
+          <h2 class="mono text-muted" style="font-size: 0.85rem; letter-spacing: 0.08em; margin-bottom: 1rem;">THE SEARCH PROBLEM</h2>
+          <p class="text-muted" style="max-width: 750px; margin-bottom: 2rem;">A job description rarely maps cleanly to one search query. Titles vary, required skills overlap with adjacent roles, exclusions matter, and an apparently valid Boolean string can still produce poor candidates.</p>
+
+          <div class="arp-search-flow">
+            <div class="arp-search-stage">
+              <span class="stage-num">01 INPUT</span>
+              <p class="stage-desc">Job Description</p>
+            </div>
+            <div class="arp-search-stage">
+              <span class="stage-num">02 PARSE</span>
+              <p class="stage-desc">Constraints</p>
+            </div>
+            <div class="arp-search-stage strategy-stage">
+              <span class="stage-num">03 LOGIC</span>
+              <p class="stage-desc">Query Strategy</p>
+            </div>
+            <div class="arp-search-stage">
+              <span class="stage-num">04 POOL</span>
+              <p class="stage-desc">Search Results</p>
+            </div>
+            <div class="arp-search-stage human-stage">
+              <span class="stage-num">05 HUMAN REVIEW</span>
+              <p class="stage-desc">Relevance Review</p>
+            </div>
+            <div class="arp-search-stage strategy-stage">
+              <span class="stage-num">06 UPDATE</span>
+              <p class="stage-desc">Revision</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin: 5rem 0 2rem 0;">
+          <h2 class="serif" style="margin-bottom: 1rem;">From a messy job description to a reviewable search strategy.</h2>
+          <p class="text-muted" style="max-width: 800px; margin-bottom: 0;">The generated query is an intermediate artifact; relevance feedback determines whether the strategy should be preserved, narrowed, expanded, or revised.</p>
         </div>
 
         <div class="workbench-layout">
@@ -38,28 +89,28 @@
             <div class="spine-node"></div>
             <button type="button" role="tab" aria-selected="true" aria-controls="stage-1" tabindex="0">01 Constraints Input</button>
             <button type="button" role="tab" aria-selected="false" aria-controls="stage-2" tabindex="-1">02 Generated Strategy</button>
-            <button type="button" role="tab" aria-selected="false" aria-controls="stage-3" tabindex="-1">03 Human Relevance Review</button>
+            <button type="button" role="tab" aria-selected="false" aria-controls="stage-3" tabindex="-1" class="human-tab">03 Human Relevance Review</button>
             <button type="button" role="tab" aria-selected="false" aria-controls="stage-4" tabindex="-1">04 Revised Strategy</button>
           </div>
-          
+
           <div class="workbench-display">
-            
+
             <div id="stage-1" class="workbench-panel" role="tabpanel" aria-hidden="false">
               <h4 class="mono text-muted" style="margin-bottom: 1.5rem;">SANITIZED INPUT CONSTRAINTS</h4>
               <span class="chip">Senior Software Engineer</span>
               <span class="chip">Distributed Systems</span>
               <span class="chip">No frontend</span>
             </div>
-            
+
             <div id="stage-2" class="workbench-panel" role="tabpanel" aria-hidden="true" hidden>
-              <h4 class="mono text-muted" style="margin-bottom: 1.5rem;">GENERATED BOOLEAN</h4>
+              <h4 class="mono text-muted" style="margin-bottom: 1.5rem;">GENERATED BOOLEAN &middot; STRATEGY PROPOSAL</h4>
               <div class="query-block">
                 ("senior software engineer" OR "backend engineer") AND ("distributed systems" OR "golang")
               </div>
             </div>
-            
-            <div id="stage-3" class="workbench-panel" role="tabpanel" aria-hidden="true" hidden>
-              <h4 class="mono text-muted" style="margin-bottom: 1.5rem;">ILLUSTRATIVE HUMAN REVIEW</h4>
+
+            <div id="stage-3" class="workbench-panel decision-panel" role="tabpanel" aria-hidden="true" hidden>
+              <h4 class="mono text-copper" style="margin-bottom: 1.5rem; font-weight: 600;">ILLUSTRATIVE HUMAN REVIEW &middot; EVALUATION BOUNDARY</h4>
               <div class="query-block" style="opacity: 0.6;">
                 ("senior software engineer" OR "backend engineer") AND ("distributed systems" OR "golang")
               </div>
@@ -67,9 +118,9 @@
                 Reviewer feedback: Getting too many full-stack candidates. Add explicit exclusions for React/Frontend.
               </div>
             </div>
-            
+
             <div id="stage-4" class="workbench-panel" role="tabpanel" aria-hidden="true" hidden>
-              <h4 class="mono text-muted" style="margin-bottom: 1.5rem;">REVISED QUERY STATE</h4>
+              <h4 class="mono text-muted" style="margin-bottom: 1.5rem;">REVISED QUERY STATE &middot; INCORPORATING FEEDBACK</h4>
               <div class="query-block revised">
                 ("senior software engineer" OR "backend engineer") AND ("distributed systems" OR "golang") <span style="background: rgba(21, 121, 71, 0.1); font-weight: bold; padding: 2px 4px;">-("react" OR "frontend" OR "css")</span>
               </div>
@@ -77,8 +128,19 @@
 
           </div>
         </div>
-        
-        
+
+        <div style="margin: 4rem 0 2rem 0; border-top: 1px solid var(--spine); padding-top: 2rem;">
+          <span class="mono text-muted" style="font-size: 0.75rem; letter-spacing: 0.08em; display: block; margin-bottom: 0.75rem;">EVALUATION SIGNALS</span>
+          <div class="arp-signals-rail">
+            <span class="signal-tag">Relevant profiles</span>
+            <span class="signal-tag">False positives</span>
+            <span class="signal-tag">Missing target profiles</span>
+            <span class="signal-tag">Platform realism</span>
+            <span class="signal-tag">Constraint adherence</span>
+          </div>
+        </div>
+
+
 <nav aria-label="Project pagination" class="project-navigator">
   <a href="/work/loft-os/" class="link-internal">&larr; Loft OS</a>
   <a href="/work/" class="link-internal">All Work</a>
@@ -86,7 +148,7 @@
 </nav>
 
       </section>
-    
+
   </main>
   <footer id="contact" class="global-footer">
     <div class="shell footer-grid">

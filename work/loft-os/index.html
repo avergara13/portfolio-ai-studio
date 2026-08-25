@@ -26,7 +26,8 @@
       <section class="shell">
         <span class="mono text-muted">02 &middot; System Schematic</span>
         <h1 class="serif">Loft OS</h1>
-        <p class="text-muted" style="max-width: 800px;">A governed operating model for moving AI-assisted work from intake to verified closeout. Treats scope, authority, evidence, and recoverability as product requirements.</p>
+        <p class="text-muted" style="max-width: 800px; margin-bottom: 1rem;">A governed operating system for moving AI-assisted work from human intent to verified closeout.</p>
+        <p class="text-muted" style="max-width: 800px; margin-bottom: 3rem;">Scope, authority, runtime, integrations, evidence, and human control are treated as system requirements.</p>
         
         <div class="project-ledger">
           <div class="ledger-item">
@@ -41,79 +42,435 @@
             <span class="mono">EVIDENCE</span>
             <p>The verifiable artifacts that must exist before closeout is allowed.</p>
           </div>
-        </div>
-
-        <div style="margin: 4rem 0;">
-          <h2 class="serif">A workflow that knows when to stop.</h2>
-          <p>Governance expressed as usable product behavior. Select a node to inspect the delivery constraints.</p>
-        </div>
-
-        <div class="interactive-diagram" role="tablist" aria-label="Loft OS Workflow Diagram">
-          <button type="button" role="tab" class="diagram-node" aria-selected="true" aria-controls="p1" tabindex="0">01 Request + Scope</button>
-          <button type="button" role="tab" class="diagram-node" aria-selected="false" aria-controls="p2" tabindex="-1">02 AI-assisted role</button>
-          <button type="button" role="tab" class="diagram-node" aria-selected="false" aria-controls="p3" tabindex="-1">03 Specialist work</button>
-          <button type="button" role="tab" class="diagram-node" aria-selected="false" aria-controls="p4" tabindex="-1">04 Review + Evidence</button>
-          <button type="button" role="tab" class="diagram-node decision" aria-selected="false" aria-controls="p5" tabindex="-1">05 Human decision</button>
-          <button type="button" role="tab" class="diagram-node" aria-selected="false" aria-controls="p6" tabindex="-1">06 Closeout</button>
-        </div>
-        
-        <div id="p1" role="tabpanel" class="diagram-panel" aria-hidden="false">
-          <h3 class="serif">Request + Scope</h3>
-          <p>Intent and scope become explicit. Named boundaries and explicit acceptance criteria are established before work begins.</p>
-        </div>
-        <div id="p2" role="tabpanel" class="diagram-panel" aria-hidden="true" hidden>
-          <h3 class="serif">AI-assisted role</h3>
-          <p>Agent is assigned with clear red lines and boundaries.</p>
-        </div>
-        <div id="p3" role="tabpanel" class="diagram-panel" aria-hidden="true" hidden>
-          <h3 class="serif">Specialist work</h3>
-          <p>The assigned work changes only authorized surfaces. Unpredictable behaviors are contained.</p>
-        </div>
-        <div id="p4" role="tabpanel" class="diagram-panel" aria-hidden="true" hidden>
-          <h3 class="serif">Review + Evidence</h3>
-          <p>Preflight state checks and repeatable verification. Human judgment remains visible.</p>
-        </div>
-        <div id="p5" role="tabpanel" class="diagram-panel decision-panel" aria-hidden="true" hidden>
-          <h3 class="serif text-copper">Human decision</h3>
-          <p class="text-copper">Keep high-impact choices under explicit human control. Material decisions stay explicit and require human authority for material release.</p>
-        </div>
-        <div id="p6" role="tabpanel" class="diagram-panel" aria-hidden="true" hidden>
-          <h3 class="serif">Closeout</h3>
-          <p>Reconcile evidence and confirm accountable ownership. Known-good closeout.</p>
-        </div>
-        
-        <div style="margin-top: 5rem;">
-          <h3 class="mono text-muted" style="margin-bottom: 1rem;">EVIDENCE CONTINUITY TRAIL</h3>
-          <div class="continuity-trail">
-            <span class="node">REQUEST</span> <span class="arrow">&rarr;</span>
-            <span class="node">BOUNDED WORK</span> <span class="arrow">&rarr;</span>
-            <span class="node">WORK ARTIFACT</span> <span class="arrow">&rarr;</span>
-            <span class="node">REVIEW EVIDENCE</span> <span class="arrow">&rarr;</span>
-            <span class="node decision-node">HUMAN DECISION</span> <span class="arrow">&rarr;</span>
-            <span class="node">CLOSEOUT RECORD</span>
+          <div class="ledger-item">
+            <span class="mono">SYSTEM MODEL</span>
+            <p>Five interacting planes coordinating governed work.</p>
           </div>
         </div>
 
-        <div class="tech-boundary-grid">
-          <div>
-            <h3>CURRENT IMPLEMENTATION</h3>
-            <ul>
-              <li>Python runtime / CLI orchestration</li>
-              <li>OpenAI Agents SDK (optional live dependency)</li>
-              <li>Deterministic routing & JSON-envelope patterns</li>
-              <li>Managed Postgres / Supabase</li>
-              <li>Notion operating surface</li>
-              <li>GitHub / review / CI delivery patterns</li>
-              <li>n8n</li>
-            </ul>
+        <div style="margin: 6rem 0;">
+          <h2 class="mono text-muted" style="margin-bottom: 1rem;">FULL SYSTEM ATLAS</h2>
+          <h3 class="serif" style="margin-bottom: 1rem;">How the complete Loft OS stack works together.</h3>
+          <p>Loft consists of five interacting planes: Experience, Control, Runtime, Integration, and State + Evidence.</p>
+          
+          <div class="atlas-interactive">
+            <!-- Left Side: Diagram Map (Tablist) -->
+            <div class="atlas-diagram" role="tablist" aria-label="Loft OS Architecture Planes">
+              <!-- Human Operator -->
+              <div class="atlas-row">
+                <div class="atlas-label"></div>
+                <div class="atlas-core">
+                  <div class="mono text-copper" style="font-size: 0.8rem; letter-spacing: 0.05em; font-weight: 600;">HUMAN / OPERATOR</div>
+                  <div class="atlas-connector" style="height: 2rem;"></div>
+                </div>
+              </div>
+
+              <!-- 01 EXPERIENCE -->
+              <div class="atlas-row">
+                <div class="atlas-label">01 Experience</div>
+                <div class="atlas-core">
+                  <button type="button" role="tab" class="atlas-box" id="tab-1" aria-controls="ap-1" aria-selected="true" tabindex="0">
+                    <span class="mono">OPERATING SURFACES</span>
+                  </button>
+                  <div class="atlas-connector"></div>
+                  <div class="atlas-connector-label">GOVERNANCE CONSTRAINS<br>THE COMPLETE SYSTEM</div>
+                  <div class="atlas-connector"></div>
+                </div>
+              </div>
+
+              <!-- 02 CONTROL -->
+              <div class="atlas-row">
+                <div class="atlas-label">02 Control</div>
+                <div class="atlas-core">
+                  <button type="button" role="tab" class="atlas-box" id="tab-2" aria-controls="ap-2" aria-selected="false" tabindex="-1" style="border-color: var(--cobalt);">
+                    <span class="mono">GOVERNANCE<br>INTELLIGENCE<br>EXECUTION CONTROL</span>
+                  </button>
+                  <div class="atlas-connector flow"></div>
+                  <div class="atlas-connector-label">ORCHESTRATION / ADMISSION</div>
+                  <div class="atlas-connector flow"></div>
+                </div>
+              </div>
+
+              <!-- 03 RUNTIME -->
+              <div class="atlas-row">
+                <div class="atlas-label">03 Runtime</div>
+                <div class="atlas-core">
+                  <button type="button" role="tab" class="atlas-box" id="tab-3" aria-controls="ap-3" aria-selected="false" tabindex="-1">
+                    <span class="mono">EXECUTION RUNTIME</span>
+                  </button>
+                  <div class="atlas-connector flow"></div>
+                  <div class="atlas-connector-label">GOVERNED EGRESS</div>
+                  <div class="atlas-connector flow"></div>
+                </div>
+              </div>
+
+              <!-- 04 INTEGRATION -->
+              <div class="atlas-row">
+                <div class="atlas-label">04 Integration</div>
+                <div class="atlas-core">
+                  <button type="button" role="tab" class="atlas-interactive-group" id="tab-4" aria-controls="ap-4" aria-selected="false" tabindex="-1">
+                    <div class="atlas-branch-top">
+                      <div></div><div></div><div></div>
+                    </div>
+                    <div class="atlas-branch-boxes">
+                      <div class="atlas-branch-box">GITHUB</div>
+                      <div class="atlas-branch-box">NOTION</div>
+                      <div class="atlas-branch-box">DATA / APIs</div>
+                    </div>
+                  </button>
+                  <div class="atlas-connector" style="margin-top: 1rem;"></div>
+                </div>
+              </div>
+
+              <!-- 05 STATE + EVIDENCE -->
+              <div class="atlas-row">
+                <div class="atlas-label text-green">05 State + Evidence</div>
+                <div class="atlas-core">
+                  <button type="button" role="tab" class="atlas-box green" id="tab-5" aria-controls="ap-5" aria-selected="false" tabindex="-1" style="border-color: var(--green);">
+                    <span class="mono text-green">EVIDENCE + STATE</span>
+                  </button>
+                  <div class="atlas-connector"></div>
+                </div>
+              </div>
+
+              <!-- Human Closeout -->
+              <div class="atlas-row">
+                <div class="atlas-label"></div>
+                <div class="atlas-core" style="padding-bottom: 2rem;">
+                  <div class="mono text-copper" style="font-size: 0.8rem; letter-spacing: 0.05em; font-weight: 600;">HUMAN DECISION / CLOSEOUT</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Side: Inspection Panels -->
+            <div class="atlas-inspector">
+              <!-- Panel 1: Experience -->
+              <div id="ap-1" role="tabpanel" aria-labelledby="tab-1" class="atlas-panel">
+                <h4>Responsibility</h4>
+                <p>Human-facing surfaces and task engagement.</p>
+                
+                <h4>Implementation</h4>
+                <ul class="atlas-tech-list">
+                  <li>Notion operating surfaces</li>
+                  <li>Task / workday views</li>
+                  <li>Human review and approval</li>
+                </ul>
+
+                <h4 class="text-green">Evidence</h4>
+                <p>Documented user intent, explicit task initiation records.</p>
+                
+                <h4 class="text-copper">Human Boundary</h4>
+                <p>Entry of intent and final verification of output.</p>
+              </div>
+
+              <!-- Panel 2: Control -->
+              <div id="ap-2" role="tabpanel" aria-labelledby="tab-2" class="atlas-panel" hidden>
+                <h4>Responsibility</h4>
+                <p>Scope constraints, routing, admission, and governance.</p>
+                
+                <h4>Implementation</h4>
+                <ul class="atlas-tech-list">
+                  <li>Scope & classification</li>
+                  <li>Routing & admission</li>
+                  <li>Acceptance criteria</li>
+                  <li>Dependencies</li>
+                  <li>Human gates</li>
+                  <li>Agent SDK orchestration</li>
+                </ul>
+
+                <h4 class="text-green">Evidence</h4>
+                <p>Routing logs, admission decision records, boundary validations.</p>
+                
+                <h4 class="text-copper">Human Boundary</h4>
+                <p>Definition of governance rules, explicit human gates for sensitive lanes.</p>
+              </div>
+
+              <!-- Panel 3: Runtime -->
+              <div id="ap-3" role="tabpanel" aria-labelledby="tab-3" class="atlas-panel" hidden>
+                <h4>Responsibility</h4>
+                <p>Governed execution of admitted work.</p>
+                
+                <h4>Implementation</h4>
+                <ul class="atlas-tech-list">
+                  <li>Python runtime / CLI</li>
+                  <li>Deterministic dispatch</li>
+                  <li>Structured messages</li>
+                  <li>Specialist / worker execution</li>
+                  <li>Local verification</li>
+                  <li>Isolated runtime</li>
+                </ul>
+
+                <h4 class="text-green">Evidence</h4>
+                <p>Execution logs, deterministic state transitions, local verification hashes.</p>
+                
+                <h4 class="text-copper">Human Boundary</h4>
+                <p>Escalation when execution exceeds bounds or fails local verification.</p>
+              </div>
+
+              <!-- Panel 4: Integration -->
+              <div id="ap-4" role="tabpanel" aria-labelledby="tab-4" class="atlas-panel" hidden>
+                <h4>Responsibility</h4>
+                <p>Named external adapters and external side effects.</p>
+                
+                <h4>Implementation</h4>
+                <ul class="atlas-tech-list">
+                  <li>Supabase / Postgres</li>
+                  <li>n8n</li>
+                  <li>Google services</li>
+                  <li>External adapters</li>
+                </ul>
+
+                <h4 class="text-green">Evidence</h4>
+                <p>API response logs, payload validations, egress/ingress receipts.</p>
+                
+                <h4 class="text-copper">Human Boundary</h4>
+                <p>Granting of specific authorization scopes and OAuth approvals.</p>
+              </div>
+
+              <!-- Panel 5: State + Evidence -->
+              <div id="ap-5" role="tabpanel" aria-labelledby="tab-5" class="atlas-panel" hidden>
+                <h4>Responsibility</h4>
+                <p>Durable truth, proof of work, and state persistence.</p>
+                
+                <h4>Implementation</h4>
+                <ul class="atlas-tech-list">
+                  <li>Repo canon</li>
+                  <li>Notion state</li>
+                  <li>Postgres / Supabase state</li>
+                  <li>Logs & tests</li>
+                  <li>CI / review</li>
+                  <li>Authorization evidence</li>
+                  <li>Closeout records</li>
+                </ul>
+
+                <h4 class="text-green">Evidence</h4>
+                <p>Immutable closeout records, authorization evidence, verified commits.</p>
+                
+                <h4 class="text-copper">Human Boundary</h4>
+                <p>Material decisions requiring signature before final state commit.</p>
+              </div>
+            </div>
           </div>
-          <div>
-            <h3>PUBLIC BOUNDARY</h3>
-            <p class="mono text-muted" style="margin-bottom: 1rem;">Public pattern, private implementation.</p>
-            <ul>
-              <li><span class="text-green">SHOWN:</span> Workflow structure, handoff model, control points</li>
-              <li><span class="text-copper">WITHHELD:</span> Private implementation detail, credentials, private URLs, operational infrastructure, sensitive records</li>
-            </ul>
+        </div>
+
+        <div style="margin: 6rem 0;">
+          <h2 class="mono text-muted" style="margin-bottom: 1rem;">TRACE ONE WORK ITEM</h2>
+          <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2rem;">
+            <p style="margin: 0; max-width: 800px;">A single work item moves through classification, governance, admission, execution, verification, human authority, and closeout.</p>
+            <button type="button" id="trace-trigger" aria-pressed="false" class="mono" style="align-self: flex-start; appearance: none; background: transparent; border: 1px solid var(--cobalt); color: var(--cobalt); padding: 0.85rem 1.25rem; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; border-radius: 2px; cursor: pointer; transition: all 0.2s ease;">Trace a Work Item +</button>
+          </div>
+          
+          <div class="trace-flow">
+            <!-- Stage 01 -->
+            <div class="trace-stage">
+              <div class="trace-marker-row">
+                <div class="trace-node"></div>
+                <div class="trace-line"></div>
+              </div>
+              <div class="trace-content">
+                <h4 class="trace-title">01 INTENT</h4>
+                <ul class="trace-list">
+                  <li>Human request</li>
+                  <li>Current system state</li>
+                </ul>
+              </div>
+            </div>
+          
+            <!-- Stage 02 -->
+            <div class="trace-stage">
+              <div class="trace-marker-row">
+                <div class="trace-node"></div>
+                <div class="trace-line"></div>
+              </div>
+              <div class="trace-content">
+                <h4 class="trace-title">02 CLASSIFY + GOVERN</h4>
+                <ul class="trace-list">
+                  <li>Scope</li>
+                  <li>Role</li>
+                  <li>Authority</li>
+                  <li>Acceptance criteria</li>
+                </ul>
+              </div>
+            </div>
+          
+            <!-- Stage 03 -->
+            <div class="trace-stage">
+              <div class="trace-marker-row">
+                <div class="trace-node"></div>
+                <div class="trace-line"></div>
+              </div>
+              <div class="trace-content">
+                <h4 class="trace-title">03 ADMIT + ROUTE</h4>
+                <ul class="trace-list">
+                  <li>Owner</li>
+                  <li>Lane</li>
+                  <li>Dependencies</li>
+                  <li>Readiness</li>
+                </ul>
+                <div class="trace-evidence">&searr; Readiness / Auth</div>
+              </div>
+            </div>
+          
+            <!-- Stage 04 -->
+            <div class="trace-stage">
+              <div class="trace-marker-row">
+                <div class="trace-node"></div>
+                <div class="trace-line"></div>
+              </div>
+              <div class="trace-content">
+                <h4 class="trace-title">04 EXECUTE</h4>
+                <ul class="trace-list">
+                  <li>Bounded specialist work</li>
+                  <li>Runtime</li>
+                  <li>Local testing / verification</li>
+                </ul>
+                <div class="trace-evidence">&searr; Logs / Commands</div>
+              </div>
+            </div>
+          
+            <!-- Stage 05 -->
+            <div class="trace-stage">
+              <div class="trace-marker-row">
+                <div class="trace-node"></div>
+                <div class="trace-line"></div>
+              </div>
+              <div class="trace-content">
+                <h4 class="trace-title">05 VERIFY + EVIDENCE</h4>
+                <ul class="trace-list">
+                  <li>Tests</li>
+                  <li>Review</li>
+                  <li>CI</li>
+                  <li>Durable evidence</li>
+                </ul>
+                <div class="trace-evidence green">&searr; CI / Mutation Receipt</div>
+              </div>
+            </div>
+          
+            <!-- Stage 06 -->
+            <div class="trace-stage">
+              <div class="trace-marker-row">
+                <div class="trace-node square"></div>
+              </div>
+              <div class="trace-content">
+                <h4 class="trace-title text-copper">06 HUMAN GATE + CLOSEOUT</h4>
+                <ul class="trace-list text-copper">
+                  <li>Explicit human decision</li>
+                  <li>State reconciliation</li>
+                  <li>Recorded outcome</li>
+                </ul>
+                <div class="trace-evidence copper">&searr; Durable closeout record</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section: Where Automation Stops -->
+        <div style="margin: 6rem 0;">
+          <h2 class="mono text-muted" style="margin-bottom: 2rem;">WHERE AUTOMATION STOPS</h2>
+          <div class="trust-list">
+            <div class="trust-rule">
+              <div class="trust-principle">INTENT &ne; EXECUTION AUTHORITY</div>
+            </div>
+            <div class="trust-rule">
+              <div class="trust-principle">REASONING &ne; MUTATION AUTHORITY</div>
+            </div>
+            <div class="trust-rule">
+              <div class="trust-principle">EXTERNAL WRITES REQUIRE GOVERNED EGRESS</div>
+            </div>
+            <div class="trust-rule">
+              <div class="trust-principle">EXECUTION &ne; COMPLETION WITHOUT EVIDENCE</div>
+            </div>
+            <div class="trust-rule copper-rule">
+              <div class="trust-principle text-copper">HIGH-IMPACT ACTIONS STOP AT A HUMAN GATE</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section: Current Implementation -->
+        <div style="margin: 6rem 0;">
+          <h2 class="mono text-muted" style="margin-bottom: 2rem;">CURRENT IMPLEMENTATION</h2>
+          <div class="stack-list">
+            <div class="stack-item">
+              <div class="stack-item-title">
+                <span class="stack-item-name">AGENT SDK</span>
+                <span class="stack-status in-progress">ARCHITECTURAL DIRECTION / IN PROGRESS</span>
+              </div>
+              <div class="stack-item-desc">Orchestration &middot; routing &middot; authorization where applicable</div>
+            </div>
+            <div class="stack-item">
+              <div class="stack-item-title">
+                <span class="stack-item-name">PYTHON / CLI</span>
+                <span class="stack-status implemented">CURRENT / IMPLEMENTED</span>
+              </div>
+              <div class="stack-item-desc">Runtime and deterministic execution tools</div>
+            </div>
+            <div class="stack-item">
+              <div class="stack-item-title">
+                <span class="stack-item-name">NOTION</span>
+                <span class="stack-status implemented">CURRENT / IMPLEMENTED</span>
+              </div>
+              <div class="stack-item-desc">Operating surface &middot; state visibility</div>
+            </div>
+            <div class="stack-item">
+              <div class="stack-item-title">
+                <span class="stack-item-name">GITHUB</span>
+                <span class="stack-status implemented">CURRENT / IMPLEMENTED</span>
+              </div>
+              <div class="stack-item-desc">Review &middot; custody &middot; CI &middot; governed delivery</div>
+            </div>
+            <div class="stack-item">
+              <div class="stack-item-title">
+                <span class="stack-item-name">SUPABASE / POSTGRES</span>
+                <span class="stack-status in-progress">ARCHITECTURAL DIRECTION / IN PROGRESS</span>
+              </div>
+              <div class="stack-item-desc">Durable operational state where applicable</div>
+            </div>
+            <div class="stack-item">
+              <div class="stack-item-title">
+                <span class="stack-item-name">N8N</span>
+                <span class="stack-status implemented">CURRENT / IMPLEMENTED</span>
+              </div>
+              <div class="stack-item-desc">Automation &middot; timers &middot; reconciliation</div>
+            </div>
+            <div class="stack-item">
+              <div class="stack-item-title">
+                <span class="stack-item-name">GOOGLE SERVICES / APIs</span>
+                <span class="stack-status implemented">CURRENT / IMPLEMENTED</span>
+              </div>
+              <div class="stack-item-desc">External integration adapters</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section: Public Boundary -->
+        <div style="margin: 6rem 0; padding-top: 4rem; border-top: 1px solid rgba(0,0,0,0.1);">
+          <h2 class="mono text-muted" style="margin-bottom: 1rem;">PUBLIC BOUNDARY</h2>
+          <p class="mono" style="text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 3rem;">PUBLIC PATTERN, PRIVATE IMPLEMENTATION</p>
+          
+          <div class="boundary-ledger">
+            <div class="boundary-col">
+              <h3 class="text-green">SHOWN</h3>
+              <ul class="boundary-list">
+                <li>Architecture</li>
+                <li>Responsibilities</li>
+                <li>Flow</li>
+                <li>Trust boundaries</li>
+                <li>Human gates</li>
+                <li>Public-safe technologies</li>
+                <li>Evidence model</li>
+              </ul>
+            </div>
+            <div class="boundary-col">
+              <h3 class="text-copper">WITHHELD</h3>
+              <ul class="boundary-list">
+                <li>Credentials</li>
+                <li>Private URLs</li>
+                <li>Private infrastructure</li>
+                <li>Sensitive configuration</li>
+                <li>Operational records</li>
+                <li>Private implementation details</li>
+              </ul>
+            </div>
           </div>
         </div>
         

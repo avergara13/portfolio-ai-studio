@@ -121,4 +121,32 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // Loft OS Trace Flow Animation
+  const traceTrigger = document.getElementById('trace-trigger');
+  if (traceTrigger) {
+    traceTrigger.addEventListener('click', () => {
+      const stages = document.querySelectorAll('.trace-stage');
+      if (stages.length === 0) return;
+      
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      
+      // Update button state
+      traceTrigger.setAttribute('aria-pressed', 'true');
+      traceTrigger.disabled = true;
+      traceTrigger.style.opacity = '0.5';
+      traceTrigger.textContent = 'Traced';
+      
+      if (prefersReducedMotion) {
+        stages.forEach(s => s.classList.add('is-active'));
+      } else {
+        // Sequentially activate each stage (~1500ms total for 6 stages)
+        stages.forEach((stage, index) => {
+          setTimeout(() => {
+            stage.classList.add('is-active');
+          }, index * 250);
+        });
+      }
+    });
+  }
 });

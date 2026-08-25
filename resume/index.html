@@ -28,37 +28,41 @@
         <p class="text-muted">Operations leadership, business systems, implementation, and AI-enabled workflows.</p>
         
         <div class="resume-layout" style="margin-top: 4rem;">
-          <div class="resume-tabs evidence-spine">
+          <div class="resume-tabs evidence-spine" role="tablist" aria-label="Resume Variants">
             <div class="spine-node"></div>
-            <button class="resume-tab active" data-target="general">General (Recommended)</button>
-            <button class="resume-tab" data-target="implementation">Implementation & Onboarding</button>
-            <button class="resume-tab" data-target="systems">Business Systems & Ops</button>
-            <button class="resume-tab" data-target="ai">AI Workflow & Automation</button>
+            <button type="button" role="tab" class="resume-tab" aria-selected="true" aria-controls="general" tabindex="0">General (Recommended)</button>
+            <button type="button" role="tab" class="resume-tab" aria-selected="false" aria-controls="implementation" tabindex="-1">Implementation & Onboarding</button>
+            <button type="button" role="tab" class="resume-tab" aria-selected="false" aria-controls="systems" tabindex="-1">Business Systems & Ops</button>
+            <button type="button" role="tab" class="resume-tab" aria-selected="false" aria-controls="ai" tabindex="-1">AI Workflow & Automation</button>
           </div>
           
           <div class="resume-content">
-            <div id="general" class="resume-panel active">
-              <h2 class="serif">General Resume</h2>
+            <div id="general" role="tabpanel" class="resume-panel" aria-hidden="false">
+              <span class="mono text-muted">RECOMMENDED START</span>
+              <h2 class="serif" style="margin-top: 0.5rem;">General Resume</h2>
               <p>The strongest single-page representation: operations leadership, systems and process improvement, implementation capability, and human-controlled AI workflow proof in one consistent story.</p>
-              <a href="/downloads/Angel_Vergara_Resume_General.pdf" class="link-download mono" download>Download PDF</a>
+              <a href="/downloads/Angel_Vergara_Resume_General.pdf" class="link-download mono" style="display: inline-block; margin-top: 1rem; padding: 0.75rem 1.5rem; border: 1px solid var(--spine);" download>Download PDF</a>
             </div>
             
-            <div id="implementation" class="resume-panel">
-              <h2 class="serif">Implementation & Onboarding</h2>
+            <div id="implementation" role="tabpanel" class="resume-panel" aria-hidden="true">
+              <span class="mono text-muted">ROLE-SPECIFIC VARIANT</span>
+              <h2 class="serif" style="margin-top: 0.5rem;">Implementation & Onboarding</h2>
               <p>Leads with bilingual operations leadership, training, configuration, workflow discovery, and customer-ready implementation.</p>
-              <a href="/downloads/Angel_Vergara_Resume_Implementation_Onboarding.pdf" class="link-download mono" download>Download PDF</a>
+              <a href="/downloads/Angel_Vergara_Resume_Implementation_Onboarding.pdf" class="link-download mono" style="display: inline-block; margin-top: 1rem; padding: 0.75rem 1.5rem; border: 1px solid var(--spine);" download>Download PDF</a>
             </div>
             
-            <div id="systems" class="resume-panel">
-              <h2 class="serif">Business Systems & Operations</h2>
+            <div id="systems" role="tabpanel" class="resume-panel" aria-hidden="true">
+              <span class="mono text-muted">ROLE-SPECIFIC VARIANT</span>
+              <h2 class="serif" style="margin-top: 0.5rem;">Business Systems & Operations</h2>
               <p>Leads with process discovery, requirements, operating controls, reporting, vendor coordination, inventory, and systems thinking.</p>
-              <a href="/downloads/Angel_Vergara_Resume_Business_Systems_Operations.pdf" class="link-download mono" download>Download PDF</a>
+              <a href="/downloads/Angel_Vergara_Resume_Business_Systems_Operations.pdf" class="link-download mono" style="display: inline-block; margin-top: 1rem; padding: 0.75rem 1.5rem; border: 1px solid var(--spine);" download>Download PDF</a>
             </div>
             
-            <div id="ai" class="resume-panel">
-              <h2 class="serif">AI Workflow & Automation</h2>
+            <div id="ai" role="tabpanel" class="resume-panel" aria-hidden="true">
+              <span class="mono text-muted">ROLE-SPECIFIC VARIANT</span>
+              <h2 class="serif" style="margin-top: 0.5rem;">AI Workflow & Automation</h2>
               <p>Leads with working AI product proof, governed AI workflows, human approval gates, recovery logic, and evidence-backed delivery.</p>
-              <a href="/downloads/Angel_Vergara_Resume_AI_Workflow_Automation.pdf" class="link-download mono" download>Download PDF</a>
+              <a href="/downloads/Angel_Vergara_Resume_AI_Workflow_Automation.pdf" class="link-download mono" style="display: inline-block; margin-top: 1rem; padding: 0.75rem 1.5rem; border: 1px solid var(--spine);" download>Download PDF</a>
             </div>
           </div>
         </div>
@@ -73,8 +77,8 @@
       </div>
       <div class="footer-links mono">
         <a href="mailto:avergara13@me.com" class="link-internal">Email</a>
-        <a href="https://linkedin.com/in/angel-vergara-83861540" class="link-external" target="_blank">LinkedIn</a>
-        <a href="https://github.com/avergara13" class="link-external" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/angel-vergara-83861540" class="link-external" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/avergara13" class="link-external" target="_blank" rel="noopener noreferrer">GitHub</a>
       </div>
     </div>
   </footer>

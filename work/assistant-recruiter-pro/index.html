@@ -29,48 +29,61 @@
         <p class="text-muted" style="max-width: 800px;">Generates and iteratively refines Boolean search strategy from job-description constraints and structured user feedback.</p>
         
         <div style="margin: 4rem 0;">
-          <h2 class="serif">Human judgment improves the strategy over time.</h2>
+          <h2 class="serif">From a messy job description to a reviewable search strategy.</h2>
           <p>Feedback is treated as a first-class input: relevance, false positives, and platform realism directly shape the next iteration.</p>
         </div>
 
-        <div class="query-workbench evidence-spine">
-          <div class="spine-node"></div>
-          
-          <div class="query-stage">
-            <h4>01 Constraints Input</h4>
-            <span class="chip">Senior Software Engineer</span>
-            <span class="chip">Distributed Systems</span>
-            <span class="chip">No frontend</span>
+        <div class="workbench-layout">
+          <div class="workbench-controls evidence-spine" role="tablist" aria-label="Query Workbench Stages">
+            <div class="spine-node"></div>
+            <button type="button" role="tab" aria-selected="true" aria-controls="stage-1" tabindex="0">01 Constraints Input</button>
+            <button type="button" role="tab" aria-selected="false" aria-controls="stage-2" tabindex="-1">02 Generated Strategy</button>
+            <button type="button" role="tab" aria-selected="false" aria-controls="stage-3" tabindex="-1">03 Human Relevance Review</button>
+            <button type="button" role="tab" aria-selected="false" aria-controls="stage-4" tabindex="-1">04 Revised Strategy</button>
           </div>
           
-          <div class="query-stage">
-            <h4>02 Generated Boolean Strategy</h4>
-            <div class="mono" style="background: #fff; padding: 1rem; border: 1px solid var(--spine);">
-              ("senior software engineer" OR "backend engineer") AND ("distributed systems" OR "golang")
+          <div class="workbench-display">
+            
+            <div id="stage-1" class="workbench-panel" role="tabpanel" aria-hidden="false">
+              <h4 class="mono text-muted" style="margin-bottom: 1.5rem;">SANITIZED INPUT CONSTRAINTS</h4>
+              <span class="chip">Senior Software Engineer</span>
+              <span class="chip">Distributed Systems</span>
+              <span class="chip">No frontend</span>
             </div>
-          </div>
-          
-          <div class="query-stage">
-            <h4>03 Human Relevance Review</h4>
-            <div class="review-note">
-              Recruiter feedback: Getting too many full-stack candidates. Add explicit exclusions for React/Frontend.
+            
+            <div id="stage-2" class="workbench-panel" role="tabpanel" aria-hidden="true">
+              <h4 class="mono text-muted" style="margin-bottom: 1.5rem;">GENERATED BOOLEAN</h4>
+              <div class="query-block">
+                ("senior software engineer" OR "backend engineer") AND ("distributed systems" OR "golang")
+              </div>
             </div>
-          </div>
-          
-          <div class="query-stage">
-            <h4>04 Revised Strategy</h4>
-            <div class="mono" style="background: #fff; padding: 1rem; border: 1px solid var(--green);">
-              ("senior software engineer" OR "backend engineer") AND ("distributed systems" OR "golang") -("react" OR "frontend" OR "css")
+            
+            <div id="stage-3" class="workbench-panel" role="tabpanel" aria-hidden="true">
+              <h4 class="mono text-muted" style="margin-bottom: 1.5rem;">ILLUSTRATIVE HUMAN REVIEW</h4>
+              <div class="query-block" style="opacity: 0.6;">
+                ("senior software engineer" OR "backend engineer") AND ("distributed systems" OR "golang")
+              </div>
+              <div class="review-note">
+                Reviewer feedback: Getting too many full-stack candidates. Add explicit exclusions for React/Frontend.
+              </div>
             </div>
+            
+            <div id="stage-4" class="workbench-panel" role="tabpanel" aria-hidden="true">
+              <h4 class="mono text-muted" style="margin-bottom: 1.5rem;">REVISED QUERY STATE</h4>
+              <div class="query-block revised">
+                ("senior software engineer" OR "backend engineer") AND ("distributed systems" OR "golang") <span style="background: rgba(21, 121, 71, 0.1); font-weight: bold; padding: 2px 4px;">-("react" OR "frontend" OR "css")</span>
+              </div>
+            </div>
+
           </div>
         </div>
         
         
-<div class="project-navigator">
+<nav aria-label="Project pagination" class="project-navigator">
   <a href="/work/loft-os/" class="link-internal">&larr; Loft OS</a>
-  <a href="/work/" class="link-internal">Work Index</a>
+  <a href="/work/" class="link-internal">All Work</a>
   <a href="/work/sous-chef/" class="link-internal">Sous Chef &rarr;</a>
-</div>
+</nav>
 
       </section>
     
@@ -83,8 +96,8 @@
       </div>
       <div class="footer-links mono">
         <a href="mailto:avergara13@me.com" class="link-internal">Email</a>
-        <a href="https://linkedin.com/in/angel-vergara-83861540" class="link-external" target="_blank">LinkedIn</a>
-        <a href="https://github.com/avergara13" class="link-external" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/angel-vergara-83861540" class="link-external" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/avergara13" class="link-external" target="_blank" rel="noopener noreferrer">GitHub</a>
       </div>
     </div>
   </footer>

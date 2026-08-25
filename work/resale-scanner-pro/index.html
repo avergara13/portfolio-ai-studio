@@ -28,54 +28,101 @@
         <h1 class="serif">Resale Scanner Pro</h1>
         <p class="text-muted" style="max-width: 800px;">A mobile-first AI-assisted resale workflow built for a real family resale operation. Connects capture, market research, human judgment, listing preparation, and operating records.</p>
         
-        <div style="margin: 4rem 0;">
+        <div class="project-ledger">
+          <div class="ledger-item">
+            <span class="mono">ROLE</span>
+            <p>Product design &middot; workflow architecture &middot; implementation &middot; delivery</p>
+          </div>
+          <div class="ledger-item">
+            <span class="mono">PRIMARY USER</span>
+            <p>Reseller making sourcing, pricing, and listing decisions</p>
+          </div>
+          <div class="ledger-item">
+            <span class="mono">SYSTEM</span>
+            <p>React &middot; TypeScript &middot; Node &middot; Postgres &middot; AI + marketplace integrations</p>
+          </div>
+          <div class="ledger-item">
+            <span class="mono">PROOF</span>
+            <p>Sanitized case study from real operating use</p>
+          </div>
+        </div>
+        
+        <div class="decision-logic">
+          <h2 class="serif" style="margin-bottom: 1rem;">The Stopping Rule</h2>
+          <p class="text-muted" style="max-width: 600px; margin-bottom: 2rem;">The system is not designed to produce more AI output. It exists to help reach a bounded financial decision.</p>
+          
+          <span>Market evidence</span>
+          <span>+</span>
+          <span>Acquisition cost</span>
+          <span>+</span>
+          <span>Fees / shipping allowance</span>
+          <span>+</span>
+          <span>Uncertainty limits</span>
+          <span>&darr;</span>
+          <div class="decision-node">HUMAN DECISION</div>
+          <div class="outcome">
+            <b>Buy</b> or <b>Pass</b>
+          </div>
+        </div>
+
+        <div style="margin: 5rem 0 3rem 0;">
           <h2 class="serif">Evidence, not a concept rendering.</h2>
           <p>These screens come from the working application in real operating use. They show the session, listing research, and sold-item evidence loop.</p>
         </div>
 
+        <!-- Desktop Presentation -->
         <div class="rsp-layout">
-          <!-- Desktop Narrative -->
           <div class="rsp-narrative evidence-spine">
             <div class="spine-node"></div>
             
-            <div class="rsp-step active link-interactive" data-img="/images/rsp/session.png">
+            <button type="button" class="rsp-step" aria-selected="true" aria-controls="rsp-preview-img" data-img="/images/rsp/session.png" data-alt="Session-level signals and sourcing evaluate screen">
               <h3 class="serif">01 Evaluate</h3>
               <p class="text-muted" style="font-size: 0.95rem;">Session-level signals and sourcing decisions. Uncertainty remains visible and the operator stays in control.</p>
-            </div>
+            </button>
             
-            <div class="rsp-step link-interactive" data-img="/images/rsp/listings.png">
+            <button type="button" class="rsp-step" aria-selected="false" aria-controls="rsp-preview-img" data-img="/images/rsp/listings.png" data-alt="Comparable listings and act screen">
               <h3 class="serif">02 Act</h3>
               <p class="text-muted" style="font-size: 0.95rem;">Comparable listings beside the item decision. Human-reviewed optimization queue.</p>
-            </div>
+            </button>
             
-            <div class="rsp-step link-interactive" data-img="/images/rsp/sold.png">
+            <button type="button" class="rsp-step" aria-selected="false" aria-controls="rsp-preview-img" data-img="/images/rsp/sold.png" data-alt="Sold evidence and learning screen">
               <h3 class="serif">03 Learn</h3>
               <p class="text-muted" style="font-size: 0.95rem;">Sold evidence closes the loop. Track outcomes so the next decision starts with context.</p>
-            </div>
+            </button>
           </div>
           
-          <!-- Viewport (Sticky Desktop / Scrollable Mobile) -->
           <div class="rsp-viewport">
-            <img id="rsp-preview-img" src="/images/rsp/session.png" alt="Resale Scanner Pro Interface" loading="lazy" />
-            <!-- Mobile Fallbacks -->
-            <img src="/images/rsp/listings.png" alt="Listings" class="mobile-only" style="display:none;" />
-            <img src="/images/rsp/sold.png" alt="Sold" class="mobile-only" style="display:none;" />
+            <img id="rsp-preview-img" src="/images/rsp/session.png" alt="Session-level signals and sourcing evaluate screen" loading="lazy" />
           </div>
         </div>
         
-        <style>
-          @media (max-width: 900px) {
-            .rsp-viewport img.mobile-only { display: block !important; }
-            .rsp-viewport > img:first-child { display: block; }
-          }
-        </style>
+        <!-- Mobile Snap Gallery -->
+        <div class="rsp-mobile-gallery">
+          <div class="rsp-snap-container">
+            <div class="rsp-snap-slide">
+              <img src="/images/rsp/session.png" alt="Evaluate Interface" />
+              <div class="caption"><b>01 Evaluate</b> Session signals and estimated profit.</div>
+            </div>
+            <div class="rsp-snap-slide">
+              <img src="/images/rsp/listings.png" alt="Act Interface" />
+              <div class="caption"><b>02 Act</b> Human-reviewed optimization queue.</div>
+            </div>
+            <div class="rsp-snap-slide">
+              <img src="/images/rsp/sold.png" alt="Learn Interface" />
+              <div class="caption"><b>03 Learn</b> Sales and fulfillment evidence.</div>
+            </div>
+          </div>
+          <div class="gallery-controls">
+            <span>&larr; Swipe to view states &rarr;</span>
+          </div>
+        </div>
         
         
-<div class="project-navigator">
+<nav aria-label="Project pagination" class="project-navigator">
   <a href="/work/" class="link-internal">&larr; Work Index</a>
-  <a href="/work/" class="link-internal">Work Index</a>
+  <a href="/work/" class="link-internal">All Work</a>
   <a href="/work/loft-os/" class="link-internal">Loft OS &rarr;</a>
-</div>
+</nav>
 
       </section>
     
@@ -88,8 +135,8 @@
       </div>
       <div class="footer-links mono">
         <a href="mailto:avergara13@me.com" class="link-internal">Email</a>
-        <a href="https://linkedin.com/in/angel-vergara-83861540" class="link-external" target="_blank">LinkedIn</a>
-        <a href="https://github.com/avergara13" class="link-external" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/angel-vergara-83861540" class="link-external" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/avergara13" class="link-external" target="_blank" rel="noopener noreferrer">GitHub</a>
       </div>
     </div>
   </footer>

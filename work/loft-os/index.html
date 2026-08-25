@@ -28,51 +28,101 @@
         <h1 class="serif">Loft OS</h1>
         <p class="text-muted" style="max-width: 800px;">A governed operating model for moving AI-assisted work from intake to verified closeout. Treats scope, authority, evidence, and recoverability as product requirements.</p>
         
+        <div class="project-ledger">
+          <div class="ledger-item">
+            <span class="mono">SCOPE</span>
+            <p>Explicit boundaries defining what the role is allowed to touch.</p>
+          </div>
+          <div class="ledger-item">
+            <span class="mono">AUTHORITY</span>
+            <p>What the agent can decide vs. what strictly requires human release.</p>
+          </div>
+          <div class="ledger-item">
+            <span class="mono">EVIDENCE</span>
+            <p>The verifiable artifacts that must exist before closeout is allowed.</p>
+          </div>
+        </div>
+
         <div style="margin: 4rem 0;">
           <h2 class="serif">A workflow that knows when to stop.</h2>
           <p>Governance expressed as usable product behavior. Select a node to inspect the delivery constraints.</p>
         </div>
 
-        <div class="interactive-diagram">
-          <div class="diagram-node active" data-target="p1">01 Request + Scope</div>
-          <div class="diagram-node" data-target="p2">02 AI-assisted role</div>
-          <div class="diagram-node" data-target="p3">03 Specialist work</div>
-          <div class="diagram-node" data-target="p4">04 Review + Evidence</div>
-          <div class="diagram-node decision" data-target="p5">05 Human decision</div>
-          <div class="diagram-node" data-target="p6">06 Closeout</div>
+        <div class="interactive-diagram" role="tablist" aria-label="Loft OS Workflow Diagram">
+          <button type="button" role="tab" class="diagram-node" aria-selected="true" aria-controls="p1" tabindex="0">01 Request + Scope</button>
+          <button type="button" role="tab" class="diagram-node" aria-selected="false" aria-controls="p2" tabindex="-1">02 AI-assisted role</button>
+          <button type="button" role="tab" class="diagram-node" aria-selected="false" aria-controls="p3" tabindex="-1">03 Specialist work</button>
+          <button type="button" role="tab" class="diagram-node" aria-selected="false" aria-controls="p4" tabindex="-1">04 Review + Evidence</button>
+          <button type="button" role="tab" class="diagram-node decision" aria-selected="false" aria-controls="p5" tabindex="-1">05 Human decision</button>
+          <button type="button" role="tab" class="diagram-node" aria-selected="false" aria-controls="p6" tabindex="-1">06 Closeout</button>
         </div>
         
-        <div id="p1" class="diagram-panel" style="display: block;">
+        <div id="p1" role="tabpanel" class="diagram-panel" aria-hidden="false">
           <h3 class="serif">Request + Scope</h3>
           <p>Intent and scope become explicit. Named boundaries and explicit acceptance criteria are established before work begins.</p>
         </div>
-        <div id="p2" class="diagram-panel" style="display: none;">
+        <div id="p2" role="tabpanel" class="diagram-panel" aria-hidden="true">
           <h3 class="serif">AI-assisted role</h3>
           <p>Agent is assigned with clear red lines and boundaries.</p>
         </div>
-        <div id="p3" class="diagram-panel" style="display: none;">
+        <div id="p3" role="tabpanel" class="diagram-panel" aria-hidden="true">
           <h3 class="serif">Specialist work</h3>
           <p>The assigned work changes only authorized surfaces. Unpredictable behaviors are contained.</p>
         </div>
-        <div id="p4" class="diagram-panel" style="display: none;">
+        <div id="p4" role="tabpanel" class="diagram-panel" aria-hidden="true">
           <h3 class="serif">Review + Evidence</h3>
           <p>Preflight state checks and repeatable verification. Human judgment remains visible.</p>
         </div>
-        <div id="p5" class="diagram-panel decision-panel" style="display: none;">
+        <div id="p5" role="tabpanel" class="diagram-panel decision-panel" aria-hidden="true">
           <h3 class="serif text-copper">Human decision</h3>
           <p class="text-copper">Keep high-impact choices under explicit human control. Material decisions stay explicit and require human authority for material release.</p>
         </div>
-        <div id="p6" class="diagram-panel" style="display: none;">
+        <div id="p6" role="tabpanel" class="diagram-panel" aria-hidden="true">
           <h3 class="serif">Closeout</h3>
           <p>Reconcile evidence and confirm accountable ownership. Known-good closeout.</p>
         </div>
         
+        <div style="margin-top: 5rem;">
+          <h3 class="mono text-muted" style="margin-bottom: 1rem;">EVIDENCE CONTINUITY TRAIL</h3>
+          <div class="continuity-trail">
+            <span class="node">REQUEST</span> <span class="arrow">&rarr;</span>
+            <span class="node">BOUNDED WORK</span> <span class="arrow">&rarr;</span>
+            <span class="node">WORK ARTIFACT</span> <span class="arrow">&rarr;</span>
+            <span class="node">REVIEW EVIDENCE</span> <span class="arrow">&rarr;</span>
+            <span class="node decision-node">HUMAN DECISION</span> <span class="arrow">&rarr;</span>
+            <span class="node">CLOSEOUT RECORD</span>
+          </div>
+        </div>
+
+        <div class="tech-boundary-grid">
+          <div>
+            <h3>CURRENT IMPLEMENTATION</h3>
+            <ul>
+              <li>Python runtime / CLI orchestration</li>
+              <li>OpenAI Agents SDK (optional live dependency)</li>
+              <li>Deterministic routing & JSON-envelope patterns</li>
+              <li>Managed Postgres / Supabase</li>
+              <li>Notion operating surface</li>
+              <li>GitHub / review / CI delivery patterns</li>
+              <li>n8n</li>
+            </ul>
+          </div>
+          <div>
+            <h3>PUBLIC BOUNDARY</h3>
+            <p class="mono text-muted" style="margin-bottom: 1rem;">Public pattern, private implementation.</p>
+            <ul>
+              <li><span class="text-green">SHOWN:</span> Workflow structure, handoff model, control points</li>
+              <li><span class="text-copper">WITHHELD:</span> Private implementation detail, credentials, private URLs, operational infrastructure, sensitive records</li>
+            </ul>
+          </div>
+        </div>
         
-<div class="project-navigator">
+        
+<nav aria-label="Project pagination" class="project-navigator">
   <a href="/work/resale-scanner-pro/" class="link-internal">&larr; Resale Scanner Pro</a>
-  <a href="/work/" class="link-internal">Work Index</a>
+  <a href="/work/" class="link-internal">All Work</a>
   <a href="/work/assistant-recruiter-pro/" class="link-internal">Assistant Recruiter Pro &rarr;</a>
-</div>
+</nav>
 
       </section>
     
@@ -85,8 +135,8 @@
       </div>
       <div class="footer-links mono">
         <a href="mailto:avergara13@me.com" class="link-internal">Email</a>
-        <a href="https://linkedin.com/in/angel-vergara-83861540" class="link-external" target="_blank">LinkedIn</a>
-        <a href="https://github.com/avergara13" class="link-external" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/angel-vergara-83861540" class="link-external" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/avergara13" class="link-external" target="_blank" rel="noopener noreferrer">GitHub</a>
       </div>
     </div>
   </footer>

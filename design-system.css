@@ -1,0 +1,689 @@
+:root {
+  --paper: #f4f3ef;
+  --paper-light: #fbfbf9;
+  --ink: #0a0f1d;
+  --ink-light: #2c3547;
+  --cobalt: #1a56db;
+  --cobalt-light: #eff3ff;
+  --green: #059669;
+  --copper: #c27b4f;
+  --rule: rgba(10, 15, 29, 0.15);
+  --rule-dark: rgba(244, 243, 239, 0.2);
+  --grid-line: rgba(10, 15, 29, 0.04);
+  
+  --font-serif: "Georgia", "Times New Roman", serif;
+  --font-sans: "Geist Sans", "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "Geist Mono", "SFMono-Regular", Consolas, monospace;
+}
+
+body {
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  /* Very subtle blueprint grid */
+  margin: 0;
+  padding: 0;
+}
+
+/* Typography Overrides */
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-top: 0;
+}
+
+/* Typographic Hierarchy */
+h1 { font-size: clamp(3rem, 5.5vw, 5rem); line-height: 1.05; } /* Hero: Largest */
+.featured-case h3 { font-size: clamp(2.5rem, 4vw, 3.5rem); line-height: 1.1; margin-bottom: 0.5rem;} /* Flagship RSP: Large */
+.loft-plate h3 { font-size: clamp(2rem, 3vw, 2.75rem); } /* Loft: Strong secondary */
+.capabilities-section h2 { font-size: clamp(1.5rem, 2.5vw, 2rem); }
+.project-card h3 { font-size: 1.25rem; font-weight: 600; } /* Supporting titles: Smaller */
+
+p { font-family: var(--font-sans); font-size: 1.125rem; }
+.hero-copy p.lede { font-size: 1.35rem; color: var(--ink-light); }
+
+.eyebrow, .card-tag, .status-dot, .handoff-public-label, .handoff-note {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: var(--ink-light);
+}
+
+.button {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  border-radius: 2px;
+  text-transform: none;
+  letter-spacing: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.button.primary {
+  background-color: var(--cobalt);
+  color: white;
+  border: 1px solid var(--cobalt);
+}
+.button.primary:hover {
+  background-color: var(--ink);
+  border-color: var(--ink);
+}
+.button:hover {
+  transform: translateX(2px);
+}
+
+.shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5vw;
+}
+
+/* Navigation and Site Header */
+.topbar {
+  background: var(--paper); /* Removed blur/borders for cleaner editorial look */
+  padding-top: 2rem;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+.wordmark {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+}
+.navlinks {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+.navlinks a {
+  color: var(--ink-light);
+  text-decoration: none;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  transition: color 0.2s;
+}
+.navlinks a:hover {
+  color: var(--ink);
+}
+
+/* Global Rhythms */
+.hero { padding: 100px 0 120px; } /* Focused */
+.capabilities-section { padding: 60px 0; } /* Compact */
+.featured-section { padding: 160px 0; } /* Large breathing room */
+.supporting-section { padding: 80px 0; }
+.career-bridge-section { padding: 120px 0; }
+.review-section { padding: 80px 0; }
+
+/* 1. HERO - Authored Technical Schematic */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 5fr 5fr;
+  gap: 6rem;
+  align-items: start;
+}
+.hero-copy {
+  /* Removed sticky to let proof breathe naturally */
+}
+.hero-actions {
+  margin: 3rem 0 2rem;
+  display: flex;
+  gap: 1rem;
+}
+.hero-proof-strip {
+  display: flex;
+  gap: 2rem;
+  margin-top: 4rem;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--ink-light);
+}
+.hero-proof-strip > div {
+  display: flex;
+  flex-direction: column;
+}
+.hero-proof-strip b { color: var(--cobalt); }
+
+/* Hero Handoff (Technical Schematic) */
+.hero-handoff {
+  background-image: linear-gradient(to right, var(--grid-line) 1px, transparent 1px), linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background: transparent; /* Removed paper-light */
+  border: none; /* Removed border */
+  box-shadow: none; /* Removed shadow */
+  padding: 0;
+  margin-top: 2rem;
+}
+.hero-handoff h2 {
+  display: none; /* Too much redundancy, let the diagram speak */
+}
+.status-dot {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+.status-dot::before {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cobalt);
+}
+.status-dot.green::before {
+  background: var(--green);
+}
+.handoff-flow {
+  position: relative;
+  border-left: 1px solid var(--rule);
+  padding-left: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.handoff-node {
+  background: transparent;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+/* Connecting horizontal ticks */
+.handoff-node::before {
+  content: "";
+  position: absolute;
+  left: -2rem;
+  top: 50%;
+  width: 1.5rem;
+  height: 1px;
+  background: var(--rule);
+}
+.handoff-node span {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--ink-light);
+  margin-right: 1.5rem;
+  opacity: 0.5;
+}
+.handoff-node b {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+.handoff-decision {
+  /* Strongly differentiated Human Decision */
+}
+.handoff-decision::before {
+  background: var(--copper);
+  width: 2rem;
+  left: -2.5rem;
+}
+.handoff-decision b {
+  color: var(--copper);
+}
+.handoff-recovery {
+  margin-left: 0;
+  padding-left: 2rem;
+  margin-top: -0.75rem;
+  margin-bottom: -0.75rem;
+  border-left: 1px dashed var(--rule);
+  position: relative;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--ink-light);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.handoff-recovery::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  bottom: 50%;
+  width: 1.5rem;
+  height: 1px;
+  background: var(--rule);
+}
+.handoff-note { display: none; } /* Subtracted chrome */
+.handoff-public-label {
+  margin-top: 3rem;
+  color: var(--copper);
+  border: none;
+  font-size: 0.65rem;
+}
+
+/* 2. RESALE SCANNER PRO - Visual Star */
+.featured-case {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+.featured-copy {
+  max-width: 600px;
+}
+.featured-screens {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  grid-template-rows: auto auto;
+  gap: 2rem;
+  width: 100%;
+}
+.featured-screens .phone-1 {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+}
+.featured-screens .phone-2 {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+}
+.featured-screens .phone-3 {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+.featured-screens figure {
+  margin: 0;
+  position: relative;
+  padding-top: 2rem; /* Room for label */
+  background: transparent;
+  border: none; /* Removed border */
+  box-shadow: none; /* Removed box shadow */
+  transition: transform 0.3s ease;
+}
+.featured-screens img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  border: 1px solid var(--rule); /* Just a very subtle defining line for the flat image */
+}
+/* Refined Editorial Annotations */
+.featured-screens figure::before {
+  content: "EVALUATE";
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-light);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.5rem;
+  width: 100%;
+}
+.featured-screens .phone-2::before { content: "ACT"; }
+.featured-screens .phone-3::before { content: "LEARN"; }
+.featured-screens figure::after { display: none; } /* Hide old label */
+
+/* 3. LOFT OS - One System Artifact */
+.loft-plate {
+  background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+  width: 100vw;
+  margin-left: calc(50% - 50vw); /* Full width breakout */
+  background: var(--ink);
+  color: var(--paper);
+  padding: 8rem 0;
+  margin-top: 4rem;
+}
+.loft-plate .shell {
+  display: grid;
+  grid-template-columns: 4.2fr 5.8fr;
+  gap: 8rem;
+  align-items: center;
+}
+.loft-plate-copy {
+  padding-right: 0;
+}
+.loft-plate h3 { color: white; }
+.loft-plate .card-tag { color: var(--cobalt-light); opacity: 0.8; }
+.loft-plate .card-link { color: white; margin-top: 3rem; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 2px; text-decoration: none;}
+.loft-plate .card-link:hover { opacity: 1; border-color: white; }
+
+.loft-plate .mini-workflow {
+  display: none; /* REMOVE REDUNDANT UI */
+}
+
+/* Dark Schematic */
+.handoff-dark .handoff-flow {
+  border-color: var(--rule-dark);
+}
+.handoff-dark .handoff-node::before {
+  background: var(--rule-dark);
+}
+.handoff-dark .handoff-node span {
+  color: rgba(255,255,255,0.4);
+}
+.handoff-dark .handoff-decision::before {
+  background: var(--copper);
+}
+.handoff-dark .handoff-decision b {
+  color: var(--copper);
+}
+.handoff-dark .handoff-recovery {
+  border-color: var(--rule-dark);
+  color: rgba(255,255,255,0.6);
+}
+.handoff-dark .handoff-recovery::before {
+  background: var(--rule-dark);
+}
+.handoff-dark .handoff-public-label {
+  border: none;
+  color: var(--copper);
+}
+
+/* Capabilities (Field Manual rows) - Subtracted borders */
+.field-manual article {
+  display: grid;
+  grid-template-columns: 1fr 3fr 5fr;
+  gap: 2rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--rule);
+  align-items: baseline;
+}
+.field-manual article:first-child {
+  border-top: none; /* Reduce border usage */
+}
+.field-manual article span {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+}
+
+/* Base image resets */
+img {
+  max-width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .hero-grid, .featured-case, .loft-plate .shell {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  /* Mobile non-negotiable: all 3 screens visible */
+  .featured-screens {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  .featured-screens .phone-1, .featured-screens .phone-2, .featured-screens .phone-3 {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+}
+
+
+
+/* Fix Loft OS layout because it doesn't have an inner .shell */
+.loft-plate {
+  background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  background: var(--ink);
+  color: var(--paper);
+  padding: 8rem calc(50vw - 600px + 5vw); /* Align content with the 1200px shell */
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: 4.2fr 5.8fr;
+  gap: 8rem;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1300px) {
+  .loft-plate {
+  background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+}
+
+@media (max-width: 900px) {
+  .loft-plate {
+  background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+}
+
+/* Assistant Recruiter Pro - Evaluation Loop */
+.recruiter-card {
+  background: white;
+  border: 1px solid var(--rule);
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.recruiter-card .capability-grid {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 3rem 0;
+  position: relative;
+  gap: 1rem;
+}
+.recruiter-card .capability-grid::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: var(--rule);
+  z-index: 0;
+}
+.recruiter-card .capability-grid > div {
+  position: relative;
+  z-index: 1;
+  background: white;
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+}
+.recruiter-card .capability-grid > div::before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--paper-light);
+  border: 2px solid var(--cobalt);
+  margin-bottom: 1rem;
+}
+/* Highlight the Human Review node */
+.recruiter-card .capability-grid > div:nth-child(3)::before {
+  background: var(--cobalt);
+}
+.recruiter-card .capability-grid b {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--ink);
+  display: block;
+}
+.recruiter-card .capability-grid span {
+  font-family: var(--font-serif);
+  font-size: 0.75rem;
+  color: var(--ink-light);
+  margin-top: 0.25rem;
+  display: block;
+}
+/* The Iteration feedback loop line */
+.recruiter-card .capability-grid > div:last-child::after {
+  content: "↺ Feedback loop";
+  position: absolute;
+  bottom: -2.5rem;
+  left: -150%;
+  right: 50%;
+  border-bottom: 1px dashed var(--cobalt);
+  border-left: 1px dashed var(--cobalt);
+  border-bottom-left-radius: 8px;
+  height: 2rem;
+  color: var(--cobalt);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  display: flex;
+  align-items: flex-end;
+  padding-left: 0.5rem;
+  padding-bottom: 0.25rem;
+}
+
+/* Staggered editorial layout for About/Career Bridge */
+.career-bridge-section {
+  padding: 120px 0;
+}
+.career-bridge-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 4rem;
+  margin-bottom: 4rem;
+}
+.operations-translation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+}
+.operations-translation article {
+  flex: 1;
+  background: white;
+  border: 1px solid var(--rule);
+  padding: 2rem;
+}
+.operations-translation span[aria-hidden="true"] {
+  font-size: 2rem;
+  color: var(--cobalt);
+}
+
+/* Additional Project Grid overrides */
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+@media (max-width: 900px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Fix loft plate internal grid */
+.loft-plate .loft-plate-copy {
+  grid-column: 1 / 2;
+}
+.loft-plate .handoff {
+  grid-column: 2 / 3;
+}
+@media (max-width: 900px) {
+  .loft-plate .loft-plate-copy, .loft-plate .handoff {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Proper layout override for Loft OS given its HTML structure */
+.loft-plate {
+  background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+  display: block; /* override previous grid */
+  padding: 8rem calc(50vw - 600px + 5vw);
+}
+.loft-plate-copy {
+  display: grid;
+  grid-template-columns: 4.2fr 5.8fr;
+  grid-template-rows: auto auto auto 1fr;
+  gap: 1rem 8rem;
+  align-items: start;
+}
+.loft-plate-copy .card-tag { grid-column: 1 / 2; grid-row: 1 / 2; margin: 0; margin-top: 2rem; }
+.loft-plate-copy h3 { grid-column: 1 / 2; grid-row: 2 / 3; margin: 0; }
+.loft-plate-copy p:first-of-type { grid-column: 1 / 2; grid-row: 3 / 4; margin: 0; }
+.loft-plate-copy .card-link { grid-column: 1 / 2; grid-row: 4 / 5; margin-top: 2rem; justify-self: start; }
+.loft-plate-copy .handoff { grid-column: 2 / 3; grid-row: 1 / 5; }
+
+@media (max-width: 900px) {
+  .loft-plate-copy {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 2rem;
+  }
+  .loft-plate-copy .card-tag,
+  .loft-plate-copy h3,
+  .loft-plate-copy p:first-of-type,
+  .loft-plate-copy .card-link,
+  .loft-plate-copy .handoff {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+}
+
+/* Card interactions */
+.project-card {
+  text-decoration: none;
+  display: block;
+}
+.project-card .card-link {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  color: var(--cobalt);
+  transition: opacity 0.2s;
+}
+.project-card:hover .card-link {
+  opacity: 0.8;
+}
+
+/* Base resets for a tags in project cards */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Fix RSP layout to put copy on left and images on right */
+.featured-case {
+  display: grid !important;
+  grid-template-columns: 3.5fr 8.5fr !important;
+  gap: 4rem !important;
+  align-items: start !important;
+}
+
+@media (max-width: 1000px) {
+  .featured-case {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Fix field manual layout inside the narrow RSP copy column */
+.featured-copy .field-manual article {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1rem 0;
+}
+.featured-copy .field-manual article p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--ink-light);
+}

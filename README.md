@@ -1,11 +1,7 @@
-<div align="center">
+# Angel Vergara - Portfolio
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+[Open the live portfolio](https://avergara13.github.io/)
 
-  <h1>Built with AI Studio</h2>
+Public, employer-facing portfolio for implementation and onboarding, business systems and operations, and human-controlled AI workflows.
 
-  <p>The fastest path from prompt to production with Gemini.</p>
-
-  <a href="https://aistudio.google.com/apps">Start building</a>
-
-</div>
+The site leads with a live product, public-safe case studies, three role-matched resume lanes, a concise hiring-team brief, and direct contact links. Private application operations, internal repositories, and governed implementation details remain intentionally isolated.

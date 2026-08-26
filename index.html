@@ -22,7 +22,7 @@
     </div>
   </header>
   <main id="main">
-    
+
       <section class="hero shell">
         <div class="hero-statement">
           <h1 class="serif">I turn messy operations into AI-assisted systems people can actually use.</h1>
@@ -42,79 +42,143 @@
         </div>
       </section>
 
-      <section class="shell" style="padding-top: 0;">
-        <h2 class="mono text-muted" style="font-size: 0.85rem; margin-bottom: 2rem;">Proof Index / 30-Second Scan</h2>
-        
-        <div class="proof-band rsp-tier">
-          <div class="proof-meta evidence-spine">
-            <div class="spine-node"></div>
-            <span class="mono">01 &middot; Working Product</span>
-            <h3>📸 Resale Scanner Pro</h3>
-            <p class="text-muted">A mobile-first AI-assisted resale workflow built for a real operation.</p>
-            <a href="/work/resale-scanner-pro/" class="link-internal mono" style="margin-top: 1rem;">Inspect Proof</a>
-          </div>
-          <div class="proof-visual">
-            <img src="/images/rsp/session.png" alt="Resale Scanner Pro Evaluate screen" loading="lazy" />
-          </div>
+      <section class="shell m2m-section" id="mess-to-mission">
+        <div class="m2m-header">
+          <h2 class="serif">Mess &rarr; Mission</h2>
+          <p class="text-muted">Turn an unstructured brain dump into a governed, actionable day plan.</p>
         </div>
 
-        <div class="proof-band loft-tier">
-          <div class="proof-meta evidence-spine">
-            <div class="spine-node"></div>
-            <span class="mono">02 &middot; System / Agent Workflow</span>
-            <h3>🛋️ Loft OS</h3>
-            <p class="text-muted">A governed operating system connecting human intent, orchestration, runtime, integrations, evidence, and verified closeout.</p>
-            <a href="/work/loft-os/" class="link-internal mono" style="margin-top: 1rem;">View Schematic</a>
-          </div>
-          <div class="proof-visual">
-            <div class="loft-preview-schematic" role="img" aria-label="Loft OS architecture flow: Human Intent to Experience, Control, Runtime, Integration, State plus Evidence, to Human Closeout, with Governance constraining the system">
-              <div class="loft-preview-flow">
-                <div class="lps-node lps-human">Human Intent</div>
-                <div class="lps-connector"></div>
-                <div class="lps-node">01 Experience</div>
-                <div class="lps-connector flow"></div>
-                <div class="lps-node lps-control">02 Control</div>
-                <div class="lps-connector flow"></div>
-                <div class="lps-node">03 Runtime</div>
-                <div class="lps-connector flow"></div>
-                <div class="lps-node">04 Integration</div>
-                <div class="lps-connector"></div>
-                <div class="lps-node lps-evidence">05 State + Evidence</div>
-                <div class="lps-connector"></div>
-                <div class="lps-node lps-human">Human Closeout</div>
+        <div class="m2m-layout">
+          <!-- INPUT PANEL (34%) -->
+          <div class="m2m-panel m2m-input">
+            <div class="m2m-panel-header" style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem;">
+              <span class="mono">Messy input</span>
+              <div style="text-align: right;">
+                <span class="mono text-muted" style="font-size: 0.75rem; background: var(--page-bg); padding: 2px 6px; border: 1px solid var(--spine);">DEMO MODE</span>
+                <span class="text-muted" style="font-size: 0.75rem; display: block; margin-top: 0.25rem;">Curated scenarios &middot; no external actions</span>
               </div>
-              <div class="lps-annotation" aria-hidden="true">
-                <div class="lps-annotation-bracket"></div>
-                <div class="lps-annotation-text">Governance<br>Constrains<br>The System</div>
+            </div>
+            <div class="m2m-input-body">
+              <label for="m2m-textarea" class="sr-only">Messy input</label>
+              <textarea id="m2m-textarea" class="m2m-textarea" placeholder="Dump everything here &mdash; tasks, deadlines, worries, ideas, reminders, things you&rsquo;re waiting on&hellip;"></textarea>
+              <div id="m2m-custom-warning" class="m2m-warning" aria-live="polite" hidden></div>
+              <button id="m2m-run-btn" class="m2m-run-btn">Run the agents</button>
+              <div class="m2m-samples">
+                <button class="m2m-sample-btn mono" data-fixture="overloaded_day">Overloaded Day</button>
+                <button class="m2m-sample-btn mono" data-fixture="blocked_project">Blocked Project</button>
+                <button class="m2m-sample-btn mono" data-fixture="brain_dump">Brain Dump</button>
+              </div>
+              <p class="m2m-privacy">Do not paste confidential or sensitive information.</p>
+              <div id="m2m-announcer" class="sr-only" aria-live="polite"></div>
+            </div>
+          </div>
+
+          <!-- PIPELINE PANEL (22%) -->
+          <div class="m2m-panel m2m-pipeline">
+            <div class="m2m-pipeline-stage" id="m2m-stage-1">
+              <div class="m2m-stage-meta">
+                <span class="mono text-muted">01 Triage</span>
+                <span class="m2m-status mono" id="m2m-status-1">WAITING</span>
+              </div>
+              <p class="text-muted m2m-stage-desc" id="m2m-desc-1" style="font-size: 0.9rem; margin-bottom: 0;">Extract tasks, blockers, decisions, constraints</p>
+              <div class="mono m2m-stage-summary" id="m2m-summary-1" hidden></div>
+            </div>
+            <div class="m2m-pipeline-stage" id="m2m-stage-2">
+              <div class="m2m-stage-meta">
+                <span class="mono text-muted">02 Planning</span>
+                <span class="m2m-status mono" id="m2m-status-2">WAITING</span>
+              </div>
+              <p class="text-muted m2m-stage-desc" id="m2m-desc-2" style="font-size: 0.9rem; margin-bottom: 0;">Prioritize outcomes, dependencies, and work</p>
+              <div class="mono m2m-stage-summary" id="m2m-summary-2" hidden></div>
+            </div>
+            <div class="m2m-pipeline-stage" id="m2m-stage-3">
+              <div class="m2m-stage-meta">
+                <span class="mono text-muted">03 Assistant</span>
+                <span class="m2m-status mono" id="m2m-status-3">WAITING</span>
+              </div>
+              <p class="text-muted m2m-stage-desc" id="m2m-desc-3" style="font-size: 0.9rem; margin-bottom: 0;">Build the day plan and next action</p>
+              <div class="mono m2m-stage-summary" id="m2m-summary-3" hidden></div>
+            </div>
+
+            <div id="m2m-pipeline-helper" class="mono text-muted" style="font-size: 0.75rem; margin-top: 1.5rem; padding-top: 0.75rem; border-top: 1px dashed var(--spine);" hidden>
+              Triage preserved &middot; replanning downstream
+            </div>
+          </div>
+
+          <!-- MISSION PANEL (44%) -->
+          <div class="m2m-panel m2m-mission empty" id="m2m-mission-panel">
+            <div class="m2m-mission-placeholder" id="m2m-mission-placeholder">
+              <p class="text-muted" style="margin-bottom: 2rem;">Your validated plan will appear here.</p>
+
+              <div class="m2m-mission-skeleton">
+                <div class="m2m-skeleton-block">
+                  <span class="mono text-muted">DO THIS NEXT</span>
+                  <div class="m2m-skeleton-line"></div>
+                </div>
+                <div class="m2m-skeleton-block">
+                  <span class="mono text-muted">TOP OUTCOMES</span>
+                  <div class="m2m-skeleton-line short"></div>
+                  <div class="m2m-skeleton-line short"></div>
+                </div>
+                <div class="m2m-skeleton-row">
+                  <div class="m2m-skeleton-block half">
+                    <span class="mono text-muted">TODAY</span>
+                    <div class="m2m-skeleton-line"></div>
+                  </div>
+                  <div class="m2m-skeleton-block half">
+                    <span class="mono text-muted">BLOCKERS</span>
+                    <div class="m2m-skeleton-line"></div>
+                  </div>
+                </div>
+                <div class="m2m-skeleton-block">
+                  <span class="mono text-muted">DEFERRED</span>
+                  <div class="m2m-skeleton-line"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- POPULATED MISSION RESULT -->
+            <div class="m2m-mission-populated" id="m2m-mission-populated" hidden>
+              <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2rem;">
+                <h3 id="m2m-mission-heading" class="serif m2m-mission-header" tabindex="-1" style="margin-bottom: 0;">Validated Mission Plan</h3>
+                <span id="m2m-revised-badge" class="mono text-muted" style="font-size: 0.75rem;" hidden>REVISED PLAN</span>
+              </div>
+
+              <div id="m2m-human-constraint" class="m2m-decision-block" hidden>
+                <span class="m2m-decision-label">HUMAN CONSTRAINT</span>
+                <strong id="m2m-human-constraint-text"></strong>
+              </div>
+
+              <div id="m2m-mission-body"></div>
+
+              <div id="m2m-refinement-ui" class="m2m-refinement-ui">
+                <label for="m2m-refine-input" class="mono text-muted" style="font-size: 0.75rem; display: block; margin-bottom: 0.5rem;">Refine the plan</label>
+                <p class="text-muted" style="font-size: 0.85rem; margin-bottom: 1rem;">Adjust a constraint without starting over.</p>
+
+                <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem; flex-wrap: wrap;">
+                  <input type="text" id="m2m-refine-input" class="m2m-textarea" style="min-height: 0; padding: 0.5rem; margin: 0; flex: 1; min-width: 200px;">
+                  <button id="m2m-refine-btn" class="m2m-run-btn" style="width: auto; margin: 0; padding: 0.5rem 1rem;">Apply refinement</button>
+                </div>
+
+                <div id="m2m-refine-warning-container" hidden>
+                  <div id="m2m-refine-warning" class="m2m-warning" aria-live="polite" style="margin-bottom: 0.5rem;"></div>
+                  <button id="m2m-start-over-btn" class="m2m-action-link mono">Start over with this added</button>
+                </div>
+
+                <div id="m2m-refine-samples" class="m2m-samples" style="margin-top: 0.5rem;">
+                </div>
+              </div>
+
+              <div class="m2m-reset-controls">
+                <button id="m2m-reset-btn" class="m2m-reset-btn">Reset Prototype</button>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="proof-band arp-tier">
-          <div class="proof-meta evidence-spine">
-            <div class="spine-node"></div>
-            <span class="mono">03 &middot; AI Workflow</span>
-            <h3>🧲 Assistant Recruiter Pro</h3>
-            <p class="text-muted">Generates and iteratively refines Boolean search strategy from JD constraints.</p>
-            <a href="/work/assistant-recruiter-pro/" class="link-internal mono" style="margin-top: 1rem;">Review Logic</a>
-          </div>
-          <div class="proof-visual">
-            <img src="/og-hiring.png" alt="Recruiter Logic Artifact" loading="lazy" />
-          </div>
-        </div>
-
-        <div class="proof-band sous-tier">
-          <div class="proof-meta evidence-spine">
-            <div class="spine-node"></div>
-            <span class="mono">04 &middot; Supporting Implementation</span>
-            <h3>🍳 Sous Chef</h3>
-            <p class="text-muted">An AI-assisted culinary workspace for recipe workflows and cooking continuity.</p>
-            <a href="/work/sous-chef/" class="link-internal mono" style="margin-top: 1rem;">View Interface</a>
-          </div>
-          <div class="proof-visual">
-            <img src="/images/sous-chef/desktop.png" alt="Sous Chef Implementation Interface" loading="lazy" />
-          </div>
+        <!-- GOVERNANCE STRIP -->
+        <div class="m2m-governance">
+          <span class="mono">DEMO MODE &middot; CURATED SCENARIOS &middot; NO EXTERNAL ACTIONS &middot; SESSION ONLY</span>
         </div>
       </section>
 
@@ -128,7 +192,7 @@
         </div>
         <a href="/about/" class="link-internal mono">Read the story</a>
       </section>
-    
+
   </main>
   <footer id="contact" class="global-footer">
     <div class="shell footer-grid">

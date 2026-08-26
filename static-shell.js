@@ -795,11 +795,13 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!m2mTextarea.value.trim()) return;
 
       m2mWarning.hidden = true;
+
+      resetPipeline(); // Clean slate before running
+
       m2mRunBtn.disabled = true;
       m2mRunBtn.textContent = 'Prototype running...';
       m2mTextarea.disabled = true;
 
-      resetPipeline(); // Clean slate before running
       const runId = currentRunId; // Capture ID for this run instance
 
       const fixture = FIXTURES[currentFixtureId];

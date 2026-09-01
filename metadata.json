@@ -1,0 +1,6 @@
+{
+  "name": "avergara13 portfolio",
+  "description": "Portfolio and static site with AI workflows.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

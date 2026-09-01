@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
       menuBtn.setAttribute('aria-expanded', !isExpanded);
       navLinks.classList.toggle('is-open');
     });
-
+    
     // Close menu when clicking a link
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
@@ -21,12 +21,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // Work Index Interaction
   const workRows = document.querySelectorAll('.work-row');
   const previewImg = document.getElementById('work-index-img');
-
+  
   if (workRows.length > 0 && previewImg) {
     const updatePreview = (row) => {
       workRows.forEach(r => r.setAttribute('data-preview-active', 'false'));
       row.setAttribute('data-preview-active', 'true');
-
+      
       const newSrc = row.getAttribute('data-img');
       if (newSrc) {
         previewImg.style.opacity = 0;
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 150);
       }
     };
-
+    
     workRows.forEach(row => {
       row.addEventListener('mouseenter', () => updatePreview(row));
       row.addEventListener('focus', () => updatePreview(row));
@@ -50,13 +50,13 @@ document.addEventListener('DOMContentLoaded', () => {
   tabLists.forEach(tabList => {
     const tabs = tabList.querySelectorAll('[role="tab"]');
     if (tabs.length === 0) return;
-
+    
     // Create an array of panels based on aria-controls
     const panels = Array.from(tabs).map(tab => {
       const panelId = tab.getAttribute('aria-controls');
       return document.getElementById(panelId);
     }).filter(Boolean);
-
+    
     const activateTab = (tabToActivate) => {
       tabs.forEach(t => {
         t.setAttribute('aria-selected', 'false');
@@ -66,23 +66,23 @@ document.addEventListener('DOMContentLoaded', () => {
         p.setAttribute('aria-hidden', 'true');
         p.hidden = true;
       });
-
+      
       tabToActivate.setAttribute('aria-selected', 'true');
       tabToActivate.setAttribute('tabindex', '0');
-
+      
       const targetId = tabToActivate.getAttribute('aria-controls');
       const targetPanel = document.getElementById(targetId);
       if (targetPanel) {
         targetPanel.setAttribute('aria-hidden', 'false');
         targetPanel.hidden = false;
       }
-
+      
       tabToActivate.focus();
     };
-
+    
     tabs.forEach((tab, index) => {
       tab.addEventListener('click', () => activateTab(tab));
-
+      
       tab.addEventListener('keydown', (e) => {
         let newIndex = null;
         if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
           newIndex = (index - 1 + tabs.length) % tabs.length;
         }
-
+        
         if (newIndex !== null) {
           e.preventDefault();
           activateTab(tabs[newIndex]);
@@ -102,13 +102,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // RSP Sticky Steps (Evidence Selectors using aria-pressed)
   const rspSteps = document.querySelectorAll('.rsp-step');
   const rspImg = document.getElementById('rsp-preview-img');
-
+  
   if (rspSteps.length > 0 && rspImg) {
     rspSteps.forEach(step => {
       step.addEventListener('click', () => {
         rspSteps.forEach(s => s.setAttribute('aria-pressed', 'false'));
         step.setAttribute('aria-pressed', 'true');
-
+        
         const newSrc = step.getAttribute('data-img');
         if (newSrc) {
           rspImg.style.opacity = 0;
@@ -128,15 +128,15 @@ document.addEventListener('DOMContentLoaded', () => {
     traceTrigger.addEventListener('click', () => {
       const stages = document.querySelectorAll('.trace-stage');
       if (stages.length === 0) return;
-
+      
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
+      
       // Update button state
       traceTrigger.setAttribute('aria-pressed', 'true');
       traceTrigger.disabled = true;
       traceTrigger.style.opacity = '0.5';
       traceTrigger.textContent = 'Traced';
-
+      
       if (prefersReducedMotion) {
         stages.forEach(s => s.classList.add('is-active'));
       } else {
@@ -419,7 +419,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const m2mSampleBtns = document.querySelectorAll('.m2m-sample-btn');
   const m2mWarning = document.getElementById('m2m-custom-warning');
   const m2mAnnouncer = document.getElementById('m2m-announcer');
-
+  
   const m2mMissionPanel = document.getElementById('m2m-mission-panel');
   const m2mMissionPlaceholder = document.getElementById('m2m-mission-placeholder');
   const m2mMissionPopulated = document.getElementById('m2m-mission-populated');
@@ -468,15 +468,15 @@ document.addEventListener('DOMContentLoaded', () => {
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const scale = prefersReducedMotion ? 0.1 : 1;
       await new Promise(r => setTimeout(r, timeSeconds * 1000 * scale));
-
+      
       if (currentRunId !== runId) throw new Error('Aborted');
 
       statusEl.textContent = "VALIDATED";
       statusEl.className = "m2m-status mono validated";
       stageEl.classList.remove("active");
-
+      
       descEl.hidden = true;
-
+      
       // Update summary safely without innerHTML
       summaryEl.textContent = summary;
       summaryEl.appendChild(document.createElement('br'));
@@ -484,7 +484,7 @@ document.addEventListener('DOMContentLoaded', () => {
       timeSpan.style.fontSize = '0.75rem';
       timeSpan.textContent = `${timeSeconds.toFixed(2)}s`;
       summaryEl.appendChild(timeSpan);
-
+      
       summaryEl.hidden = false;
       m2mAnnouncer.textContent = `${name} stage validated.`;
     };
@@ -497,14 +497,14 @@ document.addEventListener('DOMContentLoaded', () => {
       if (mission.nextAction) {
         const sec = el('div', 'm2m-mission-section');
         sec.appendChild(el('span', 'm2m-section-label', 'DO THIS NEXT'));
-
+        
         const box = el('div', 'm2m-dominant-action');
         box.appendChild(el('div', 'm2m-dominant-text', mission.nextAction.action));
-
+        
         if (mission.nextAction.estimate) {
           const est = el('div', 'm2m-dominant-meta');
-          est.textContent = mission.nextAction.inferred
-            ? `${mission.nextAction.estimate} · estimated`
+          est.textContent = mission.nextAction.inferred 
+            ? `${mission.nextAction.estimate} · estimated` 
             : mission.nextAction.estimate;
           box.appendChild(est);
         }
@@ -532,7 +532,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mission.today.forEach(t => {
           const li = el('li', 'm2m-list-item');
           li.appendChild(el('span', '', t.action));
-
+          
           if (t.estimate || t.state) {
             const metaWrap = el('div');
             if (t.estimate) metaWrap.appendChild(el('span', 'm2m-meta-pill', t.estimate));
@@ -551,7 +551,7 @@ document.addEventListener('DOMContentLoaded', () => {
         sec.appendChild(el('span', 'm2m-section-label', 'BLOCKERS'));
         mission.blockers.forEach(b => {
           const block = el('div', 'm2m-blocker-block');
-
+          
           const r1 = el('div', 'm2m-blocker-row');
           r1.appendChild(el('span', 'm2m-blocker-label', 'WAITING ON'));
           r1.appendChild(el('div', '', b.blocking));
@@ -628,26 +628,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const resetPipeline = () => {
       currentRunId++; // Increment to invalidate any running timers
       revisionCount = 0;
-
+      
       [1, 2, 3].forEach(i => {
         const statusEl = document.getElementById(`m2m-status-${i}`);
         const descEl = document.getElementById(`m2m-desc-${i}`);
         const summaryEl = document.getElementById(`m2m-summary-${i}`);
         const stageEl = document.getElementById(`m2m-stage-${i}`);
-
+        
         statusEl.textContent = "WAITING";
         statusEl.className = "m2m-status mono";
         stageEl.classList.remove("active");
         descEl.hidden = false;
         summaryEl.hidden = true;
       });
-
+      
       m2mMissionPanel.classList.add('empty');
       m2mMissionPanel.classList.remove('completed');
       m2mMissionPlaceholder.hidden = false;
       m2mMissionPopulated.hidden = true;
       m2mMissionBody.innerHTML = '';
-
+      
       m2mRunBtn.disabled = false;
       m2mRunBtn.textContent = 'Run the agents';
       m2mTextarea.disabled = false;
@@ -705,7 +705,7 @@ document.addEventListener('DOMContentLoaded', () => {
     m2mRefineBtn.addEventListener('click', async () => {
       const rawVal = m2mRefineInput.value.trim();
       const val = rawVal.toLowerCase().replace(/\.$/, '');
-
+      
       m2mRefineWarningContainer.hidden = true;
       m2mStartOverBtn.hidden = true;
 
@@ -740,7 +740,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Valid refinement
       revisionCount++;
       const revisionStr = revisionCount < 10 ? `0${revisionCount}` : `${revisionCount}`;
-
+      
       m2mRefineBtn.disabled = true;
       m2mRefineInput.disabled = true;
       m2mPipelineHelper.hidden = false;
@@ -752,16 +752,16 @@ document.addEventListener('DOMContentLoaded', () => {
       try {
         await runStage(2, "Planning", refinementData.planning_summary, 0.9, runId);
         await runStage(3, "Assistant", refinementData.assistant_summary, 0.8, runId);
-
+        
         if (currentRunId !== runId) return;
 
         renderMission(refinementData.mission);
-
+        
         m2mHumanConstraintText.textContent = refinementData.constraint_label || rawVal;
         m2mHumanConstraint.hidden = false;
         m2mRevisedBadge.textContent = `REVISED PLAN · REVISION ${revisionStr}`;
         m2mRevisedBadge.hidden = false;
-
+        
         m2mMissionHeading.focus();
         m2mAnnouncer.textContent = "Plan revised. Updated Mission is ready.";
       } catch(e) {
@@ -795,13 +795,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!m2mTextarea.value.trim()) return;
 
       m2mWarning.hidden = true;
-
-      resetPipeline(); // Clean slate before running
-
       m2mRunBtn.disabled = true;
       m2mRunBtn.textContent = 'Prototype running...';
       m2mTextarea.disabled = true;
-
+      
+      resetPipeline(); // Clean slate before running
       const runId = currentRunId; // Capture ID for this run instance
 
       const fixture = FIXTURES[currentFixtureId];
@@ -818,7 +816,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Finalize
         renderMission(fixture.mission);
-
+        
         // Populate sample refinements for this fixture
         m2mRefineSamples.innerHTML = '';
         if (fixture.supportedRefinements) {
@@ -831,7 +829,7 @@ document.addEventListener('DOMContentLoaded', () => {
             m2mRefineSamples.appendChild(btn);
           });
         }
-
+        
         m2mMissionPlaceholder.hidden = true;
         m2mMissionPopulated.hidden = false;
         m2mMissionPanel.classList.remove('empty');

@@ -1,5 +1,6 @@
 @import url('https://cdn.jsdelivr.net/npm/geist@1.0.3/dist/fonts/geist-sans/style.css');
 @import url('https://cdn.jsdelivr.net/npm/geist@1.0.3/dist/fonts/geist-mono/style.css');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&display=swap');
 
 :root {
   --paper: #fdfcfb;
@@ -10,7 +11,7 @@
   --green: #157947;
   --spine: #d3d6db;
   --muted: #626875;
-  
+
   --font-sans: 'Geist Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'Geist Mono', monospace;
   --font-serif: Georgia, serif;
@@ -58,7 +59,16 @@ section { padding: 6rem 0; }
   border-bottom: 1px solid var(--spine);
 }
 .nav-shell { display: flex; justify-content: space-between; align-items: center; }
-.wordmark { font-family: var(--font-serif); font-size: 1.25rem; text-decoration: none; color: var(--ink); }
+.wordmark {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-variation-settings: 'opsz' 72;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  text-decoration: none;
+  color: var(--ink);
+}
 .navlinks { display: flex; gap: 2rem; align-items: center; }
 .navlinks a { text-decoration: none; color: var(--ink); font-size: 0.9rem; font-weight: 500; }
 .navlinks a:hover, .navlinks a.active { color: var(--cobalt); }
@@ -108,7 +118,45 @@ button { font-family: inherit; }
 .footer-links { display: flex; gap: 2rem; }
 
 /* HOME PAGE HERO */
-.hero-statement { max-width: 800px; margin-bottom: 4rem; }
+.hero-statement {
+  max-width: 960px;
+  margin-bottom: 3rem;
+}
+
+.hero-statement h1 {
+  max-width: 17ch;
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  margin-bottom: 1.35rem;
+}
+
+.hero-statement > p {
+  max-width: 56ch;
+  font-size: 1.15rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.hero-handoff {
+  border-top: 1px solid var(--spine);
+  padding-top: 1.25rem;
+}
+
+@media (max-width: 700px) {
+  .wordmark {
+    font-size: 1.3rem;
+  }
+
+  .hero-statement h1 {
+    font-size: clamp(2.35rem, 10vw, 3.2rem);
+    max-width: 18ch;
+  }
+
+  .hero-statement > p {
+    font-size: 1.05rem;
+  }
+}
 .hero-handoff {
   display: flex; gap: 1.5rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); align-items: center; flex-wrap: wrap;
 }
@@ -892,7 +940,7 @@ button { font-family: inherit; }
   h1 { font-size: 2rem; }
   .proof-band { grid-template-columns: 1fr !important; gap: 2rem !important; }
   .work-index-layout, .rsp-layout, .workbench-layout, .resume-layout { grid-template-columns: 1fr; gap: 2rem; }
-  
+
   .menu-button { display: block; }
   .navlinks {
     display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0;
@@ -900,7 +948,7 @@ button { font-family: inherit; }
   }
   .navlinks.is-open { display: flex; }
   .work-preview { display: none; }
-  
+
   /* Mobile Snap Gallery for RSP */
   .rsp-narrative, .rsp-viewport { display: none; } /* Hide desktop versions */
   .rsp-mobile-gallery { display: block; }
@@ -909,7 +957,7 @@ button { font-family: inherit; }
   .rsp-snap-slide img { width: 100%; height: auto; border: 1px solid var(--spine); }
   .rsp-snap-slide .caption { font-family: var(--font-mono); font-size: 0.85rem; color: var(--muted); }
   .rsp-snap-slide .caption b { color: var(--ink); display: block; font-family: var(--font-sans); font-size: 1.125rem; margin-bottom: 0.25rem; }
-  
+
   .footer-grid { flex-direction: column; gap: 2rem; }
   .continuity-trail { padding: 1rem; gap: 0.5rem; }
 }
@@ -934,7 +982,7 @@ button { font-family: inherit; }
 .atlas-core { display: flex; flex-direction: column; align-items: center; text-align: center; }
 
 /* Interactive Buttons */
-button.atlas-box { 
+button.atlas-box {
   border: 1px solid var(--ink); background: var(--paper); padding: 1.5rem; width: 100%;
   appearance: none; font-family: inherit; font-size: inherit; color: inherit;
   cursor: pointer; transition: all 0.2s ease; position: relative; text-align: center;
@@ -1171,5 +1219,241 @@ button.atlas-interactive-group[aria-selected="true"]::before {
   }
   .lps-annotation-text {
     font-size: 0.55rem;
+  }
+}
+
+
+/* DECISION RELAY — presentation refinement */
+.m2m-section {
+  padding-top: 1.25rem;
+}
+
+.m2m-header {
+  max-width: 760px;
+  margin-bottom: 2.25rem;
+}
+
+.m2m-header h2 {
+  font-size: 2.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.m2m-header > p {
+  max-width: 58ch;
+  margin-bottom: 0.85rem;
+}
+
+.m2m-header-meta {
+  display: flex;
+  gap: 0.7rem;
+  align-items: baseline;
+  flex-wrap: wrap;
+  font-size: 0.8rem;
+}
+
+.m2m-header-meta .mono {
+  color: var(--cobalt);
+}
+
+.m2m-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.82fr) minmax(0, 1.55fr);
+  grid-template-areas:
+    "input pipeline"
+    "input mission";
+  gap: 1.25rem 2rem;
+  align-items: start;
+  margin-bottom: 1.25rem;
+}
+
+.m2m-panel {
+  width: auto;
+}
+
+.m2m-input {
+  grid-area: input;
+  background: #fff;
+  border: 1px solid var(--spine);
+  padding: 1.5rem;
+}
+
+.m2m-pipeline {
+  grid-area: pipeline;
+  background: transparent;
+  border: none;
+  padding: 0 0 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  position: relative;
+}
+
+.m2m-pipeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 1.2rem;
+  border-top: 1px solid var(--spine);
+  z-index: 0;
+}
+
+.m2m-pipeline-stage {
+  border-left: none;
+  padding-left: 0;
+  padding-top: 2.1rem;
+  position: relative;
+  background: var(--page-bg);
+  z-index: 1;
+}
+
+.m2m-pipeline-stage::before {
+  left: 0;
+  top: 0.82rem;
+  background: var(--page-bg);
+}
+
+.m2m-pipeline-stage:not(:last-of-type)::after {
+  content: '→';
+  position: absolute;
+  top: 0.45rem;
+  right: -0.9rem;
+  color: var(--spine);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+.m2m-stage-meta {
+  justify-content: flex-start;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.m2m-stage-desc {
+  max-width: 24ch;
+}
+
+#m2m-pipeline-helper {
+  grid-column: 1 / -1;
+  margin-top: 0 !important;
+}
+
+.m2m-mission {
+  grid-area: mission;
+  background: transparent;
+  border: none;
+  padding: 1.5rem 0 0;
+  border-top: 1px solid var(--spine);
+  min-height: 330px;
+}
+
+.m2m-mission-placeholder {
+  max-width: 760px;
+}
+
+.m2m-mission-placeholder > p {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--ink);
+}
+
+.m2m-mission-skeleton {
+  opacity: 0.72;
+}
+
+.m2m-skeleton-line {
+  height: 0.7rem;
+  border: none;
+  background: #e7e3dd;
+}
+
+.m2m-dominant-action {
+  padding: 1.35rem 0 1.35rem 1.25rem;
+  border: none;
+  border-left: 3px solid var(--cobalt);
+  background: transparent;
+}
+
+.m2m-proof-line {
+  border-top: 1px solid var(--spine);
+  padding-top: 1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.07em;
+}
+
+.m2m-governance {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .m2m-layout {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "input"
+      "pipeline"
+      "mission";
+    gap: 2rem;
+  }
+
+  .m2m-pipeline {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding-left: 1rem;
+  }
+
+  .m2m-pipeline::before {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: auto;
+    border-top: none;
+    border-left: 1px solid var(--spine);
+  }
+
+  .m2m-pipeline-stage {
+    padding: 0 0 0 1.25rem;
+  }
+
+  .m2m-pipeline-stage::before {
+    left: -1.3rem;
+    top: 0.45rem;
+  }
+
+  .m2m-pipeline-stage:not(:last-of-type)::after {
+    content: '';
+  }
+
+  .m2m-mission {
+    padding-top: 1.25rem;
+  }
+
+  .m2m-proof-line {
+    line-height: 1.7;
+  }
+}
+
+/* Decision Relay truth label */
+.m2m-title-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.m2m-title-row h2 {
+  margin-bottom: 0;
+}
+
+.m2m-demo-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: var(--cobalt);
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .m2m-title-row {
+    align-items: center;
+    gap: 0.65rem;
   }
 }
